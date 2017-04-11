@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <Package Name="DisplayName" Culture="Culture" LicenseAgreement="eula.txt"
+            xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+            <PackageFiles>
+                <PackageFile Name="eula.txt"/>
+            </PackageFiles>
+            <Strings>
+                <String Name="Culture">en</String>
+                <String Name="DisplayName">Windows Imaging Component</String>
+                <String Name="AdminRequired">Administrator permissions are required to install Windows Imaging Component. Contact your administrator.</String>
+                <String Name="GeneralFailure">A failure occurred attempting to install Windows Imaging Component.</String>
+
+                <!-- http://www.microsoft.com/downloads/en/details.aspx?FamilyID=8e011506-6307-445b-b950-215def45ddd8&displaylang=en -->
+                <String Name="WICRedistX86">http://download.microsoft.com/download/f/f/1/ff178bb1-da91-48ed-89e5-478a99387d4f/wic_x86_enu.exe</String>
+
+                <!-- http://www.microsoft.com/downloads/en/details.aspx?familyid=F64654AC-6E26-41D9-A90A-0E7783B864EE&displaylang=en -->
+                <String Name="WICRedistX64">http://download.microsoft.com/download/6/4/5/645fed5f-a6e7-44d9-9d10-fe83348796b0/wic_x64_enu.exe</String>
+            </Strings>
+        </Package>
+    </Fragment>
+</Wix>

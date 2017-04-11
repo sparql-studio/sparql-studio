@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product ProductCode="Windows.Imaging.Component" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+
+        <PackageFiles CopyAllPackageFiles="false">
+            <PackageFile Name="wic_x86.exe" HomeSite="WICRedistX86" PublicKey="3082010a0282010100cd819638ae5ca2f2c1dfded0ab958dd63c9d1f8bc35d862e5df0b172f5abac886ab5dab1227b0bc8c8a54b915e2213e9f9f5239db5f46e76aeefeea43cc7c4c0595c3fabb3733326a662816179a162f46e8895d06eddc79fd2a451117661ba708a65a1961689a75d81d04466e5db569e40cafcdc76242e443000e5d67d7b9511d5581da3e84f0bc988dca2d653996cca63ca996a9a925e4c4d11e82fd35b5b5e5f52a3732da5bb84450d8c191576cb08da9aa67015e84dec69fd5db26b8fed295137388bc6464915945098b0f468a4d7de097167749e778c1d856b97eae75f45cce0e6710dd16300937b31988e0bb413bdb3d0eef1df21eea96061ee37433dc30203010001" />
+            <PackageFile Name="wic_x64.exe" HomeSite="WICRedistX64" PublicKey="3082010a0282010100cd819638ae5ca2f2c1dfded0ab958dd63c9d1f8bc35d862e5df0b172f5abac886ab5dab1227b0bc8c8a54b915e2213e9f9f5239db5f46e76aeefeea43cc7c4c0595c3fabb3733326a662816179a162f46e8895d06eddc79fd2a451117661ba708a65a1961689a75d81d04466e5db569e40cafcdc76242e443000e5d67d7b9511d5581da3e84f0bc988dca2d653996cca63ca996a9a925e4c4d11e82fd35b5b5e5f52a3732da5bb84450d8c191576cb08da9aa67015e84dec69fd5db26b8fed295137388bc6464915945098b0f468a4d7de097167749e778c1d856b97eae75f45cce0e6710dd16300937b31988e0bb413bdb3d0eef1df21eea96061ee37433dc30203010001" />
+        </PackageFiles>
+
+        <InstallChecks>
+            <FileCheck Property="VersionPMHdll32" FileName="PhotoMetadataHandler.dll" SearchPath="system32" SpecialFolder="WindowsFolder" />
+            <FileCheck Property="VersionPMHdll64" FileName="PhotoMetadataHandler.dll" SearchPath="system64" SpecialFolder="WindowsFolder" />
+        </InstallChecks>
+
+        <Commands Reboot="Defer">
+            <Command PackageFile="wic_x86.exe"
+                        Arguments="/quiet /norestart"
+                        EstimatedInstalledBytes="1200000"
+                        EstimatedTempBytes="3700000"
+                        EstimatedInstallSeconds="60">
+                <InstallConditions>
+                    <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel" />
+                    <BypassIf Property="VersionPMHdll32" Compare="VersionGreaterThanOrEqualTo" Value="6.0.5840.16388" />
+                    <BypassIf Property="VersionNT" Compare="VersionLessThan" Value="5.1.2" />
+                    <!-- Requires the user to be an admin user when installing the prerequisite -->
+                    <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+                </InstallConditions>
+
+                <ExitCodes>
+                    <ExitCode Value="0" Result="Success"/>
+                    <ExitCode Value="1641" Result="SuccessReboot"/>
+                    <ExitCode Value="3010" Result="SuccessReboot"/>
+                    <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+                </ExitCodes>
+            </Command>
+            <Command PackageFile="wic_x64.exe"
+                        Arguments="/quiet /norestart"
+                        EstimatedInstalledBytes="1200000"
+                        EstimatedTempBytes="6400000"
+                        EstimatedInstallSeconds="60">
+                <InstallConditions>
+                    <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="AMD64" />
+                    <BypassIf Property="VersionPMHdll64" Compare="VersionGreaterThanOrEqualTo" Value="6.0.5840.16388"/>
+                    <BypassIf Property="VersionNT" Compare="VersionLessThan" Value="5.1.2"/>
+                    <!-- Requires the user to be an admin user when installing the prerequisite -->
+                    <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+                </InstallConditions>
+                <ExitCodes>
+                    <ExitCode Value="0" Result="Success"/>
+                    <ExitCode Value="1641" Result="SuccessReboot"/>
+                    <ExitCode Value="3010" Result="SuccessReboot"/>
+                    <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+                </ExitCodes>
+            </Command>
+        </Commands>
+
+    </Product>
+</Wix>

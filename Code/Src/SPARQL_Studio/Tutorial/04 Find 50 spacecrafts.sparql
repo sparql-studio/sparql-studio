@@ -1,0 +1,13 @@
+﻿PREFIX dbo: <http://dbpedia.org/ontology/> # 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> # Friend of a Friend (FOAF) vocabulary
+PREFIX rdf: <http://www.w3.org/2000/01/rdf-schema#> # The RDF Schema vocabulary (RDFS)
+PREFIX skos: <http://www.w3.org/2004/02/skos/core> # 
+PREFIX space: <http://purl.org/net/schemas/space/>
+
+SELECT ?craft ?name ?wikiPage
+{
+  ?craft a dbo:Spacecraft .
+  ?craft rdf:label ?name .
+  ?craft foaf:isPrimaryTopicOf ?wikiPage
+}
+LIMIT 50

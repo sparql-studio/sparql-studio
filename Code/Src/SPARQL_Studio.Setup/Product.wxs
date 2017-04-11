@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    
+    <?define msiProductName="SPARQL Studio" ?>
+    <?define msiProductFolderName="SPARQL Studio" ?>
+    <?define msiSourcePathCoreFiles=$(var.SPARQL_Studio.TargetDir)?>
+    <?define msiManufacturer="Modular Systems"?>
+    <?define Version = "!(bind.fileVersion.AppExe)" ?>
+    <?define UpgradeCode = "606BD817-F53F-45AE-A15A-851B7735276F" ?>
+    
+    <?if $(var.Platform)=x64 ?>
+        <?define msiProductId = "*" ?> <!--"A78569AE-F3C3-48D3-8059-734B0445C2B7" ?>-->
+        <?define win64Flag = "yes" ?>
+    <?else ?>
+        <?define msiProductId = "*" ?> <!--"72C70A26-0F42-4778-B4EF-E819B934293E" ?>-->
+        <?define win64Flag = "no" ?>
+    <?endif ?>    
+    
+    <?if $(var.win64Flag)="yes" ?>
+        <?define programFilesFolderId = "ProgramFiles64Folder" ?>
+    <?else ?>
+        <?define programFilesFolderId = "ProgramFilesFolder" ?>
+    <?endif ?>
+
+    <Product Id="$(var.msiProductId)" 
+             Name="$(var.msiProductName)" 
+             Manufacturer = "$(var.msiManufacturer)"
+             Language="1033" 
+             Version="$(var.Version)" 
+             UpgradeCode="$(var.UpgradeCode)">
+        
+        <Package Id="*" 
+                 InstallerVersion="200" 
+                 Compressed="yes" 
+                 InstallScope="perMachine"
+                 Manufacturer="$(var.msiManufacturer)"
+                 Comments="Copyright (C) $(var.msiManufacturer), Denmark"/>
+
+        <!--<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />-->
+        <MediaTemplate EmbedCab="yes"/>
+
+        <UIRef Id="WixUI_Minimal"/>
+
+        <Icon Id="SPARQL_Studio.EXE" SourceFile="$(var.msiSourcePathCoreFiles)\SPARQL_Studio.exe"></Icon>
+        <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+
+        <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="You are not supposed to downgrade this product"/>
+            
+        <!--<InstallExecuteSequence>
+            --><!--<RemoveExistingProducts After="InstallInitialize" />--><!--
+            <Custom Action="NewerVersion" After="FindRelatedProducts">NEWERVERSIONDETECTED</Custom>
+        </InstallExecuteSequence>-->
+
+        <CustomAction Id="NewerVersion" Error="A later version of [ProductName] is already installed." />    
+ 
+        <Feature Id="ProductFeature" Title="SPARQL_Studio.Setup" Level="1">
+            <ComponentGroupRef Id="SparqlStudio.CoreFiles" />
+            <ComponentRef Id="Component_MainExeFile"/>
+            <ComponentRef Id="Component_ProgramMenuDir"/>
+        </Feature>
+    
+        <WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+    
+    </Product>
+        
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+        
+            <!--Installation folder -->
+            <Directory Id="$(var.programFilesFolderId)" Name="ProgramFilesDir">
+                <Directory Id="INSTALLDIR" Name="$(var.msiProductFolderName)" />
+            </Directory>
+
+            <!-- Program menu/ Start menu-->
+            <Directory Id="ProgramMenuFolder" Name="Programs">
+                <Directory Id="SparqlStudioProgramMenuFolder" Name="$(var.msiProductFolderName)">
+                </Directory>
+            </Directory>
+
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+
+        <Component Id="Component_MainExeFile" Directory="INSTALLDIR">
+            <File Id="AppEXE" Name="SPARQL_Studio.exe" DiskId="1" Source="$(var.msiSourcePathCoreFiles)SPARQL_Studio.exe" KeyPath="yes">
+                <Shortcut Id="startmenuApp" Directory="SparqlStudioProgramMenuFolder" Name="SPARQL Studio" WorkingDirectory="INSTALLDIR" Icon="SPARQL_Studio.EXE" IconIndex="0" Advertise="yes" />
+            </File>
+            <File Id="SparqlDocumentIcon" Name="Sparql_document.ico" DiskId="1" Source="$(var.msiSourcePathCoreFiles)Sparql_document.ico" KeyPath="no"/>
+            <ProgId Id="SparqlStudio.SparqlFile" Description="SPARQL Query" Icon="SparqlDocumentIcon">
+                <Extension Id="Sparql" ContentType="application/Sparql">
+                    <Verb Id="open" Command="Open" TargetFile="AppEXE" Argument='"%1"' />
+                </Extension>
+            </ProgId>
+        </Component>
+
+        <Component Id="Component_ProgramMenuDir" Guid="E3198F53-B466-4DD2-BB48-1998E989ECAF" Directory="SparqlStudioProgramMenuFolder">
+            <RemoveFolder Id="SparqlStudioProgramMenuFolder" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+        </Component>
+
+
+    </Fragment>
+
+</Wix>

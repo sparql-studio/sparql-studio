@@ -1,0 +1,32 @@
+﻿# 
+# 011b- The MINUS keyword
+# ------------------------
+# 
+# Another way to remove unwanted solutions from the results set
+# uses the MINUS keyword. 
+# The following example shows achieves the same result as the
+# previous query, using the MINUS keyword instead of FILTER NOT EXISTS
+# 
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?subject WHERE 
+{
+	dbr:Switzerland foaf:name ?subjectName .
+	?subject foaf:name ?subjectName .
+	
+	MINUS {?subject dbo:capital ?capital}
+}
+
+# Note that there are subtle differences between MINUS and NOT EXISTS.
+# As the SPARQL 1.1 Query Language specifications put it:
+# 
+#   "NOT EXISTS and MINUS represent two ways of thinking about negation, 
+#    one based on testing whether a pattern exists in the data, given the 
+#    bindings already determined by the query pattern, and one based on 
+#    removing matches based on the evaluation of two patterns. In some 
+#    cases they can produce different answers."
+# 
+# 

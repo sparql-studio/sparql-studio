@@ -1,0 +1,11 @@
+﻿PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX card: <http://www.w3.org/People/Berners-Lee/card#>
+
+SELECT ?name ?homepage
+FROM <http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf>
+WHERE 
+{
+    card:i foaf:knows ?known .
+    ?known foaf:homepage ?homepage .
+    ?known foaf:name ?name
+}

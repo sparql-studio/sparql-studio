@@ -1,0 +1,28 @@
+﻿# 004. Limiting results
+# ---------------------
+# 
+# Sometimes a SPARQL query may return (intentionally or unintentionally) a lot 
+# more results than we want or can handle.
+#
+# In these situations, or when we are still experimenting with our query and 
+# don't quite know what to expect back, the LIMIT keyword may come in handy.
+# 
+# For example, the previous query (the one about AS Roma midfielders) returns 
+# 203 results from dbpedia. Let's apply the LIMIT keyword and get just 10 
+# results: 
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> # Friend of a Friend (FOAF) vocabulary
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbprop: <http://dbpedia.org/property/>
+
+SELECT ?subject WHERE
+{
+	?subject rdf:type foaf:Person ;
+			rdf:type dbo:SoccerPlayer ;
+			dbprop:position dbr:Midfielder ;
+			dbprop:clubs dbr:A.S._Roma .
+}
+LIMIT 10

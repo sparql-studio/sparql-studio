@@ -1,0 +1,62 @@
+﻿# 005 - Finding out what URIs to use
+# ----------------------------------
+# 
+# If you made it this far, you might be wondering how are you supposed to 
+# find out what URIs are used to identify the different subjects and predicates. 
+# For instance, how do you know that in order to make sure that an subject
+# is a person, you need to add the triple pattern:
+# 
+# <person URI> rdf:type <http://dbpedia.org/ontology/Person>
+# 
+# Well, that's a very good question; there are several general-purpose 
+# "vocabularies" that are used to define a lot of commonly used predicates and
+# properties -- rdf, yago, foaf etc. Plus, rdf repositories often define their
+# own vocabulary of URIs that best apply to their specific domain. 
+# 
+# In fact, one of the reasons I wrote this little tool in the first place
+# was to try to make the URI hunt task somewhat easier.
+#
+# First of all, the SPARQL Studio editor includes autocomplete functionalities 
+# for some of the most common ontologies. So that will help somehow.
+#
+# Most importantly, at least for the dbpedia server, an subject URI points to
+# an actual web page that will display ALL the triples where that subject is 
+# involved. When you look at the result window for a query in SPARQL Studio,
+# you can simply double click on a resource URI and see all the related triples
+# in the SPARQL Studio embedded web viewer.
+# 
+# You can then use this information to refine your query. 
+# 
+# Let try this with an actual problem. Let's say you would like to list
+# all landlocked countries in the world.
+# 
+# How do you find countries? And how do you find out whether a country is 
+# landlocked?
+# 
+# Well, you know at least one landlocked country: Switzerland.
+# 
+# That means you can start out with this query:
+# 
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+SELECT ?subject WHERE 
+{
+	dbr:Switzerland foaf:name ?subjectName .
+	?subject foaf:name ?subjectName .
+}
+
+# This query will give you all entities that have the same name as the country
+# Switzerland (dbr:Switzerland or <http://dbpedia.org/resource/Switzerland>).
+# 
+# In the result window, double-click on the country URI (either Helvetic_Republic 
+# or Switzerland). You'll see the dbpedia page about Switzerland, listing all
+# sort of facts about that country.
+# 
+# First, how do we identify a country? well, scroll down to the rdf:type line, and 
+# you'll see that Switzerland has the dbpedia-owl:Country rdf:type.
+# 
+# Also, in the same section, you'll notice that Switzerland has also the 
+# yago:LandlockedCountry rdf:type.  
+# 

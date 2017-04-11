@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A6D9612-F718-46EA-87B5-2DDD2C6EA963}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dk.ModularSystems.Sparql</RootNamespace>
+    <AssemblyName>SPARQL_Studio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ontology.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dotNetRDF, Version=1.0.3.0, Culture=neutral, PublicKeyToken=6055ffe4c97cc780, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\dotNetRDF.1.0.3\lib\net40\dotNetRDF.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VDS.Common, Version=1.2.0.0, Culture=neutral, PublicKeyToken=ab5f4eb908061bf0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\VDS.Common.1.2.0\lib\net40-client\VDS.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppController.cs" />
+    <Compile Include="AppView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppView.Designer.cs">
+      <DependentUpon>AppView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgAbout.Designer.cs">
+      <DependentUpon>DlgAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorErrorMarkingStyle.cs" />
+    <Compile Include="ErrorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorView.Designer.cs">
+      <DependentUpon>ErrorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilePickerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FilePickerView.Designer.cs">
+      <DependentUpon>FilePickerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryEditorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryEditorView.Designer.cs">
+      <DependentUpon>QueryEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryResultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryResultView.Designer.cs">
+      <DependentUpon>QueryResultView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceBrowserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResourceBrowserView.Designer.cs">
+      <DependentUpon>ResourceBrowserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsView.Designer.cs">
+      <DependentUpon>SettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SparqlAutoCompletion\AutoCompleteImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoCompleteImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SparqlAutoCompletion\SparqlCompletionDataProvider.cs" />
+    <Compile Include="EditorErrorMarker.cs" />
+    <Compile Include="ViewContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="AppView.resx">
+      <DependentUpon>AppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgAbout.resx">
+      <DependentUpon>DlgAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorView.resx">
+      <DependentUpon>ErrorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilePickerView.resx">
+      <DependentUpon>FilePickerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QueryEditorView.resx">
+      <DependentUpon>QueryEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryResultView.resx">
+      <DependentUpon>QueryResultView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceBrowserView.resx">
+      <DependentUpon>ResourceBrowserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsView.resx">
+      <DependentUpon>SettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SparqlAutoCompletion\AutoCompleteImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AutoCompleteImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Ontologies\owl.ttl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Tutorial\000 - Introduction.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Ontologies\dbprop.nt" />
+    <None Include="Ontologies\dbprop.ttl" />
+    <None Include="Ontologies\dcterms.ttl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SparqlSyntaxHighlighing\Sparql-Mode.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\001 - Namespaces and prefixes.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\002 - Querying multiple triples.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\003 - About separators.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\004 - Limiting results.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\005 - Finding out what URIs to use.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\006 - Landlocked countries.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\008 - The FILTER keyword - part 1.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\009 - The FILTER keyword - part 2.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\010 - The FILTER keyword - specifying data types.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\011 - Filtering for the presence or absence of a pattern.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\011b- The MINUS keyword.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\012 - Inner FILTERs.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\013 - Including optional values.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\014 - Combining patterns with the UNION keyword.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\020 - The rdf_type predicate and the a keyword.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\007 - My name is Switzerland - and Schweitz, and Suisse, and Svizzera.sparql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tutorial\01 Tim BL FOAF contacts.sparql" />
+    <None Include="Tutorial\02 Tim BL FOAF contacts homepages.sparql" />
+    <None Include="Tutorial\030 - Prooperty Paths.sparql" />
+    <None Include="Tutorial\04 Find 50 spacecrafts.sparql" />
+    <None Include="Tutorial\040 - Assignments and binding.sparql" />
+    <None Include="Tutorial\05 landlocked countries.sparql" />
+    <None Include="Tutorial\group philosophers by country.sparql" />
+    <None Include="Tutorial\Persons.sparql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libs\DigitalRune-TextEditor-1.3.1\DigitalRune.Windows.TextEditor\DigitalRune.Windows.TextEditor.csproj">
+      <Project>{2d18be89-d210-49eb-a9dd-2246fbb3df6d}</Project>
+      <Name>DigitalRune.Windows.TextEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\OntologyParser\OntologyParser.csproj">
+      <Project>{6DAA3518-8C23-4B0D-9422-CD39DB725799}</Project>
+      <Name>OntologyParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPARQL_Studio.Contracts\SPARQL_Studio.Contracts.csproj">
+      <Project>{7bcf885b-3dce-4255-8872-2b9d4d3ea8e2}</Project>
+      <Name>SPARQL_Studio.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPARQL_Studio.Settings\SPARQL_Studio.Settings.csproj">
+      <Project>{07793b50-df4b-4729-9e27-07c2a1120abc}</Project>
+      <Name>SPARQL_Studio.Settings</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bolt2.ico" />
+    <Content Include="lightning.ico" />
+    <None Include="Ontologies\recipe.ttl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\autocomplete_16.png" />
+    <Content Include="Resources\autocomplete_32.png" />
+    <Content Include="SparqlAutoCompletion\Keywords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sparql_document.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Keyword.png" />
+    <None Include="Resources\key_16.png" />
+    <None Include="Resources\key_32.png" />
+    <Content Include="Ontologies\dbo.rdf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Ontologies\foaf.rdf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ontologies\rdf.rdf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ontologies\skos.rdf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ontology.ico" />
+    <Content Include="Resources\new_16.png" />
+    <Content Include="Resources\new_32.png" />
+    <Content Include="Resources\open_16.png" />
+    <Content Include="Resources\open_32.png" />
+    <None Include="Resources\rdf_16.png" />
+    <Content Include="Resources\run_16.png" />
+    <Content Include="Resources\run_32.png" />
+    <Content Include="Resources\saveAs_16.png" />
+    <Content Include="Resources\saveAs_32.png" />
+    <Content Include="Resources\save_16.png" />
+    <Content Include="Resources\save_32.png" />
+    <Content Include="Resources\settings_16.png" />
+    <Content Include="Resources\settings_32.png" />
+    <Content Include="SparqlSyntaxHighlighing\SyntaxMode.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Settings\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

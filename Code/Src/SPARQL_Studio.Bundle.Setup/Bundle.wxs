@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+    
+    <Bundle Name="SPARQL_Studio.Bundle.Setup" Version="1.0.0.0" Manufacturer="Modular Systems" UpgradeCode="2c8d77e5-f1bf-421d-8874-8e7c6a433943">
+
+        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+              <bal:WixStandardBootstrapperApplication LicenseFile="$(var.SPARQL_Studio.Setup.ProjectDir)eula.rtf" />
+        </BootstrapperApplicationRef>
+        
+        <Chain>
+            <!--
+            <ExePackage Id="WindowsImagingComponent" 
+                        DownloadUrl=""
+                        Compressed="no"
+                        DetectCondition="">
+            </ExePackage>
+            -->
+            <!--<MsiPackage Id="WindowsImagingComponent" SourceFile="$(var.WindowsImagingComponent.Setup.TargetPath)"/>-->
+            <PackageGroupRef Id="NetFx45Web"/>  <!--After="WindowsImagingComponent"/>-->
+            <MsiPackage Id="SPARQL_Studio.Setup" SourceFile="$(var.SPARQL_Studio.Setup.TargetPath)" After="NetFx45Web"/>
+        
+        </Chain>
+
+        <!--<WixVariable Id="WixUILicenseRtf" Value="$(var.SPARQL_Studio.Setup.ProjectDir)eula.rtf" />-->
+    
+    </Bundle>    
+</Wix>

@@ -1,0 +1,22 @@
+﻿PREFIX dbo: <http://dbpedia.org/ontology/> # 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> # Friend of a Friend (FOAF) vocabulary
+PREFIX rdf: <http://www.w3.org/2000/01/rdf-schema#> # The RDF Schema vocabulary (RDFS)
+PREFIX skos: <http://www.w3.org/2004/02/skos/core> # 
+
+SELECT DISTINCT ?subject ?name ?birthPlaceName ?birthCountryName ?wikiPage WHERE
+{
+    ?subject a foaf:Person .
+    ?subject foaf:isPrimaryTopicOf ?wikiPage .
+    ?subject rdf:label ?name .
+    ?subject dbo:birthPlace ?birthPlace .
+    
+    ?birthPlace rdf:label ?birthPlaceName .
+    ?birthPlace dbo:country ?birthCountry .
+    
+    ?birthCountry rdf:label ?birthCountryName .
+    # OPTIONAL {?country rdf:label ?countryName} .
+    FILTER (lang(?name) = "en") .
+    FILTER (lang(?birthCountryName) = "en") .
+    
+}
+LIMIT 100

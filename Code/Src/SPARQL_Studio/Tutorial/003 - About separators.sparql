@@ -1,0 +1,36 @@
+﻿# 003. About separators
+# ---------------------
+# 
+# We have seen that triple patterns specified in the query have to be separated
+# by a dot (.)
+#
+# It is also possible to specify a semicolon instead of a colon to separate 
+# triple patterns: this indicates that the subject item in the next triple 
+# pattern is the same as the subject element of the current pattern, and 
+# therefore it can (and actually, it must) be omitted.
+# 
+# We can therefore save some typing and make the previous query a little bit
+# nicer if we write it like this:
+#
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> # Friend of a Friend (FOAF) vocabulary
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbprop: <http://dbpedia.org/property/>
+
+SELECT ?subject WHERE
+{
+	?subject rdf:type foaf:Person ;
+			rdf:type dbo:SoccerPlayer ;
+			dbprop:position dbr:Midfielder ;
+			dbprop:clubs dbr:A.S._Roma .
+}
+
+# The above means that all the triple patterns share the same subject (?subject).
+#
+# Of course it is possible to mix dots and semicolons within the same SELECT
+# statement, as needed.
+# 
+
