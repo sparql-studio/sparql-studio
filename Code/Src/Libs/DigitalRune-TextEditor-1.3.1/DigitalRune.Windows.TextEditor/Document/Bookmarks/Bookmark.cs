@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using DigitalRune.Windows.TextEditor;
 using DigitalRune.Windows.TextEditor.Document;
 
 namespace DigitalRune.Windows.TextEditor.Bookmarks
 {
-  /// <summary>
-  /// Description of Bookmark.
-  /// </summary>
-  public class Bookmark
+    /// <summary>
+    /// Description of Bookmark.
+    /// </summary>
+    public class Bookmark
   {
     private IDocument _document;
     private TextAnchor _anchor;

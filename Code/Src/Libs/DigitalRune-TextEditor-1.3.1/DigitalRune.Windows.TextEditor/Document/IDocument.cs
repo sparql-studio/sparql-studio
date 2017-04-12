@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DigitalRune.Windows.TextEditor;
 using DigitalRune.Windows.TextEditor.Undo;
 using DigitalRune.Windows.TextEditor.Bookmarks;
 using DigitalRune.Windows.TextEditor.Folding;
@@ -13,10 +12,10 @@ using DigitalRune.Windows.TextEditor.Properties;
 
 namespace DigitalRune.Windows.TextEditor.Document
 {
-  /// <summary>
-  /// Represents a text document that can be shown and edited in a <see cref="TextEditorControl"/>.
-  /// </summary>
-  public interface IDocument
+    /// <summary>
+    /// Represents a text document that can be shown and edited in a <see cref="TextEditorControl"/>.
+    /// </summary>
+    public interface IDocument
   {
     /// <summary>
     /// Gets or sets the text editor properties.

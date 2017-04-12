@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using System.Security.Permissions;
 
 [assembly: AssemblyTitle("DigitalRune TextEditor Control")]
 [assembly: AssemblyDescription("An open source .NET text editor control.")]

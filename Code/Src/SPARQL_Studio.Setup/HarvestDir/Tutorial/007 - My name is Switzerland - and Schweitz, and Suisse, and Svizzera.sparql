@@ -1,0 +1,36 @@
+﻿# 007 - My name is Switzerland - and Schweitz, and Suisse, and Svizzera  
+# ---------------------------------------------------------------------
+# 
+# Of course, such stuff as <http://dbpedia.org/resource/Switzerland> id not
+# pretty to look at. It would be much better to be able to display a country
+# actual name.
+# 
+# This is not difficult, as it will usually be delivered by predicates such as
+# rdfs:label.
+# 
+# The problem is that a single resource (say, <http://dbpedia.org/resource/Switzerland>)
+# will usually have a lot of rdfs:label entries -- one for each major language.
+# And that will dramatically increase the number of matching triples in our
+# query results.
+# 
+# Try it:
+#  
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX yago: <http://dbpedia.org/class/yago/>
+
+SELECT ?country ?countryName WHERE 
+{
+    ?country rdf:type yago:LandlockedCountries ;
+    		 rdf:type dbo:Country .
+   	?country rdfs:label ?countryName .
+}
+
+#
+# See the difference? Now we get 516 results instead of 43. This is because the
+# results will include one row for each country name found. 
+# 
+# Can we do something about this? You bet. 
+# 

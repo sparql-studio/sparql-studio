@@ -1,7 +1,13 @@
-﻿using System.Collections.Generic;
+﻿// Author: Antonello Salvatucci as@modularsystems.dk
+//
+// This code is copyright (c) by Antonello Salvatucci and Modular Systems
+// See the LICENSE file at the root of the repository for licensing details.
+// 
+// THIS CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
+// ----------------------------------------------------------------------------
+//
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Text;
 using dk.ModularSystems.Sparql.Contracts;
@@ -12,7 +18,6 @@ using System.Threading;
 using dk.ModularSystems.Sparql.Contracts.Controllers;
 using dk.ModularSystems.Sparql.Ontology;
 using dk.ModularSystems.Sparql.Settings;
-using dk.ModularSystems.Sparql.SparqlAutoCompletion;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 

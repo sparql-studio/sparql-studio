@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DigitalRune.Windows.TextEditor.Document;
-using DigitalRune.Windows.TextEditor.Utilities;
 
 
 namespace DigitalRune.Windows.TextEditor.Bookmarks
 {
-  /// <summary>
-  /// This class handles the bookmarks for a buffer.
-  /// </summary>
-  public class BookmarkManager
+    /// <summary>
+    /// This class handles the bookmarks for a buffer.
+    /// </summary>
+    public class BookmarkManager
   {
     private readonly IDocument _document;
 #if DEBUG

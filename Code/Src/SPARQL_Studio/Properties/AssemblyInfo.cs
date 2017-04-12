@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -10,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Modular Systems")]
 [assembly: AssemblyProduct("SPARQL Studio")]
-[assembly: AssemblyCopyright("Copyright ©  2013 Modular Systems")]
+[assembly: AssemblyCopyright("Copyright ©  2013-2017 A. Salvatucci and Modular Systems")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.*")]
+[assembly: AssemblyVersion("0.3.*")]
 // [assembly: AssemblyFileVersion("1.0.0.0")]

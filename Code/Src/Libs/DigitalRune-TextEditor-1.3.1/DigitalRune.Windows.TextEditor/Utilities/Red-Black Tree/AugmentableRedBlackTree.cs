@@ -1,15 +1,14 @@
 using System;
-using System.Text;
 using System.Diagnostics;
 using System.Collections.Generic;
 
 
 namespace DigitalRune.Windows.TextEditor.Utilities
 {
-  /// <summary>
-  /// Description of RedBlackTree.
-  /// </summary>
-  internal sealed class AugmentableRedBlackTree<T, Host> : ICollection<T> where Host : IRedBlackTreeHost<T>
+    /// <summary>
+    /// Description of RedBlackTree.
+    /// </summary>
+    internal sealed class AugmentableRedBlackTree<T, Host> : ICollection<T> where Host : IRedBlackTreeHost<T>
   {
     private const bool RED = true;
     private const bool BLACK = false;

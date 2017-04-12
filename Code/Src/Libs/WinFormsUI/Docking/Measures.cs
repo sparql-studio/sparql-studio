@@ -1,5 +1,3 @@
-using System;
-
 namespace WeifenLuo.WinFormsUI.Docking
 {
     internal static class Measures

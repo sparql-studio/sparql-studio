@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Design;
-using System.Windows.Forms.Design;
 using System.ComponentModel;
 
 namespace WeifenLuo.WinFormsUI.Docking
