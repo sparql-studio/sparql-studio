@@ -1,5 +1,5 @@
 # sparql-studio
-Advanced SPARQL editor with syntax coloring, autocomplete and a tutorial to learn the basics
+Advanced SPARQL query editor with syntax coloring, autocomplete and a tutorial to learn the basics
 
 Just grab and install the latest release, run the program and open the tutorial (HELP / Tutorial queries) to start SPARQLing!
 
