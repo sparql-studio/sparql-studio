@@ -4,6 +4,1450 @@
         <name>VDS.Common</name>
     </assembly>
     <members>
+        <member name="T:VDS.Common.Collections.AbstractListBackedBoundedList`1">
+            <summary>
+            Abstract implementation of a bounded list backed by a standard <see cref="T:System.Collections.Generic.IList`1"/>
+            </summary>
+            <typeparam name="T">Element type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Collections.IBoundedList`1">
+            <summary>
+            Interface for bounded lists which are extensions to the standard list contract with some additional constraints
+            </summary>
+            <remarks>
+            <para>
+            The primary constraint on a bounded list is that it is guaranteed to never grow beyond it's configured maximum capacity.  Implementations may internally grow the data structures used to store the elements up to/above that limit using whatever strategy they desire but they <strong>must</strong> never allow the size of the list to grow beyond the maximum capacity.
+            </para>
+            <para>
+            The second constraint on a bounded list is with regards to its behaviour when a user attempts to assert more elements than the list has capacity for.  The behaviour in this regard is declared via the <see cref="P:VDS.Common.Collections.IBoundedList`1.OverflowPolicy"/> property, depending on the policy declared different behaviours may occur.
+            </para>
+            </remarks>
+            <typeparam name="T">Element type</typeparam>
+        </member>
+        <member name="P:VDS.Common.Collections.IBoundedList`1.OverflowPolicy">
+            <summary>
+            Gets the overflow policy that applies when attempting to add more elements to the list than there is capacity for
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.IBoundedList`1.MaxCapacity">
+            <summary>
+            Gets the maximum capacity of the bounded list i.e. the maximum number of elements it holds
+            </summary>
+        </member>
+        <member name="F:VDS.Common.Collections.AbstractListBackedBoundedList`1._list">
+            <summary>
+            Underlying list
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            Creates a new list backed bounded list using the given list
+            </summary>
+            <param name="list">List</param>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.SelectInitialCapacity(System.Int32)">
+            <summary>
+            Helper method for selecting an initial capacity for the backing list to avoid preemptively allocating the full capacity needed to hold the maximum number of permitted elements
+            </summary>
+            <param name="capacity">MaxCapacity</param>
+            <returns>Initial capacity</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.IndexOf(`0)">
+            <summary>
+            Gets the index of the given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>Index or -1 if not in list</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts an item at the given index
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item</param>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.Add(`0)">
+            <summary>
+            Adds an item
+            </summary>
+            <param name="item">Item</param>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.Clear">
+            <summary>
+            Clears the list
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.Contains(`0)">
+            <summary>
+            Gets whether the list contains the given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if contained in the list, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the list to the given array
+            </summary>
+            <param name="array">Array</param>
+            <param name="arrayIndex">Array Index to start the copy at</param>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.Remove(`0)">
+            <summary>
+            Removes an item from the list
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if item was removed, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.AbstractListBackedBoundedList`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes an item at the given index
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="P:VDS.Common.Collections.AbstractListBackedBoundedList`1.Count">
+            <summary>
+            Gets the size of the list
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.AbstractListBackedBoundedList`1.IsReadOnly">
+            <summary>
+            Gets whether the list is ready only
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.AbstractListBackedBoundedList`1.Item(System.Int32)">
+            <summary>
+            Gets/Sets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.AbstractListBackedBoundedList`1.OverflowPolicy">
+            <summary>
+            Gets the overflow policy that is in-use
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.AbstractListBackedBoundedList`1.MaxCapacity">
+            <summary>
+            Gets the maximum capacity of the list
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.BinarySparseArray`1">
+            <summary>
+            A sparse array implementation backed by a binary tree
+            </summary>
+            <remarks>
+            This implementation provides a trade off between look up time and memory usage and so provides a compromise between the <see cref="T:VDS.Common.Collections.BlockSparseArray`1"/> and <see cref="T:VDS.Common.Collections.LinkedSparseArray`1"/>
+            </remarks>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:VDS.Common.Collections.ISparseArray`1">
+            <summary>
+            Interface for sparse arrays which are memory efficient implementations of arrays
+            </summary>
+            <typeparam name="T">Value type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.ISparseArray`1.Clear">
+            <summary>
+            Clears the array i.e. resets all values to the default and frees any unecessary storage
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.ISparseArray`1.Item(System.Int32)">
+            <summary>
+            Gets/Sets the element at the specified index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Element at the given index</returns>
+            <exception cref="T:System.IndexOutOfRangeException">Thrown if the given index is out of range</exception>
+        </member>
+        <member name="P:VDS.Common.Collections.ISparseArray`1.Length">
+            <summary>
+            Gets the length of the array
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.BinarySparseArray`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new sparse array
+            </summary>
+            <param name="length">Length</param>
+        </member>
+        <member name="M:VDS.Common.Collections.BinarySparseArray`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.BinarySparseArray`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.BinarySparseArray`1.Clear">
+            <summary>
+            Clears the array
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.BinarySparseArray`1.Item(System.Int32)">
+            <summary>
+            Gets/Sets the value at a given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.BinarySparseArray`1.Length">
+            <summary>
+            Gets the length of the array
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.BlockSparseArray`1">
+            <summary>
+            A memory efficient sparse array implemented as a sequence of blocks
+            </summary>
+            <remarks>
+            <para>
+            This sparse array is implemented as a series of potentially empty blocks such that only blocks which contain values have any memory allocated to them.  This means it is extremely memory efficient for sparsely populated arrays.  The block size may be tweaked to limit the amount of memory that might be newly allocated by setting a value since setting a value in an as yet unpopulated block requires allocating the memory for that block.  Since at minimum the sequence of blocks must be maintained this implementation can be less memory efficient than the <see cref="T:VDS.Common.Collections.LinkedSparseArray`1"/> for some usages.
+            </para>
+            <para>
+            Since the sequence of blocks and the contents of each block are implemented using standard arrays an element may be accessed by index in linear time regardless of how empty/full the sparse array is.
+            </para>
+            </remarks>
+            <typeparam name="T">Value type</typeparam>
+        </member>
+        <member name="F:VDS.Common.Collections.BlockSparseArray`1.DefaultBlockSize">
+            <summary>
+            Default block size used if one is not explicitly specified
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.BlockSparseArray`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new sparse array with the default block size
+            </summary>
+            <param name="length">Length of the array</param>
+        </member>
+        <member name="M:VDS.Common.Collections.BlockSparseArray`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new sparse array
+            </summary>
+            <param name="length">Length</param>
+            <param name="blockSize">Block Size</param>
+        </member>
+        <member name="M:VDS.Common.Collections.BlockSparseArray`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.BlockSparseArray`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.BlockSparseArray`1.Clear">
+            <summary>
+            Clears the array
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.BlockSparseArray`1.Item(System.Int32)">
+            <summary>
+            Gets/Sets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.BlockSparseArray`1.BlockSize">
+            <summary>
+            Gets/Sets the block size
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.BlockSparseArray`1.Length">
+            <summary>
+            Gets the length of the array
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.CappedBoundedList`1">
+            <summary>
+            A simple bounded list implementation that errors if users attempt to add more items than there is capacity for
+            </summary>
+            <typeparam name="T">Element type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.CappedBoundedList`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new bounded list with the given capacity
+            </summary>
+            <param name="capacity">MaxCapacity</param>
+        </member>
+        <member name="M:VDS.Common.Collections.CappedBoundedList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new bounded list with the given capacity and items
+            </summary>
+            <param name="capacity">MaxCapacity</param>
+            <param name="items">Items</param>
+            <remarks>
+            If the number of items provided exceeds the declared capacity then an error will be thrown from the constructor
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.CappedBoundedList`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts an item into the list at the given index
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item to insert</param>
+        </member>
+        <member name="M:VDS.Common.Collections.CappedBoundedList`1.Add(`0)">
+            <summary>
+            Adds an item to the list
+            </summary>
+            <param name="item">Item</param>
+        </member>
+        <member name="P:VDS.Common.Collections.CappedBoundedList`1.OverflowPolicy">
+            <summary>
+            Gets the overflow policy for this bounded list which is <see cref="F:VDS.Common.Collections.BoundedListOverflowPolicy.Error"/>
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.CappedBoundedList`1.MaxCapacity">
+            <summary>
+            Gets the maximum capacity of the list
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.BoundedListOverflowPolicy">
+            <summary>
+            Possible overflow policies for bounded lists
+            </summary>
+        </member>
+        <member name="F:VDS.Common.Collections.BoundedListOverflowPolicy.Error">
+            <summary>
+            When this policy is used attempting to add more items to a bounded list than there is capacity for <strong>must</strong> result in an <see cref="T:System.InvalidOperationException"/>
+            </summary>
+        </member>
+        <member name="F:VDS.Common.Collections.BoundedListOverflowPolicy.Discard">
+            <summary>
+            When this policy is used attempting to add more items to a bounded list than there is capacity for <strong>must</strong> result in the excess items being silenty discarded.  When attempting to insert items then the behaviour will depend on where you are inserting. If inserting prior to the end of the list then inserting should cause items at the end of the list to be discarded if the capacity would be exceeded.  If inserting at the end of a list that is at capacity then the item to be inserted is itself discarded.
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.DiscardingBoundedList`1">
+            <summary>
+            A simple bounded list implementation that discards items that would exceed the lists capacity
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.DiscardingBoundedList`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new bounded list with the given capacity
+            </summary>
+            <param name="capacity">MaxCapacity</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DiscardingBoundedList`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new bounded list with the given capacity and items
+            </summary>
+            <param name="capacity">MaxCapacity</param>
+            <param name="items">Items</param>
+            <remarks>
+            If the number of items provided exceeds the declared capacity then excess items are discarded
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.DiscardingBoundedList`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts an item at the given index
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DiscardingBoundedList`1.Add(`0)">
+            <summary>
+            Adds an item
+            </summary>
+            <param name="item">Item</param>
+        </member>
+        <member name="P:VDS.Common.Collections.DiscardingBoundedList`1.OverflowPolicy">
+            <summary>
+            Gets the overflow policy for this bounded list which is <see cref="F:VDS.Common.Collections.BoundedListOverflowPolicy.Discard"/>
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.DiscardingBoundedList`1.MaxCapacity">
+            <summary>
+            Gets the maximum capacity of the list
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.DuplicateSortedList`1">
+            <summary>
+            A sorted list that supports duplicate entries
+            </summary>
+            <remarks>
+            Note that duplicates are not stored directly so this should <strong>only</strong> be used if the user is happy to receive multiple instances of the first instance of duplicates seen
+            </remarks>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.#ctor">
+            <summary>
+            Creates a new list
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new list with the given items
+            </summary>
+            <param name="items">Items</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Creates a new list that uses the given comparer
+            </summary>
+            <param name="comparer">Comparer</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.#ctor(System.Collections.Generic.IComparer{`0},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new list that uses the given comparer and has the given items
+            </summary>
+            <param name="comparer">Comparer</param>
+            <param name="items">Items</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets ane enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.Add(`0)">
+            <summary>
+            Adds an item to the list
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.Clear">
+            <summary>
+            Clears the list
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.Contains(`0)">
+            <summary>
+            Gets if the list contains the given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if contained in the list, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the list to the given array
+            </summary>
+            <param name="array">Array</param>
+            <param name="arrayIndex">Array Index to start the copy at</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.Remove(`0)">
+            <summary>
+            Removes an item from the list
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if item was removed, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.IndexOf(`0)">
+            <summary>
+            Gets the index of a given item in the list
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.Insert(System.Int32,`0)">
+            <summary>
+            Unsupported for this list
+            </summary>
+            <param name="index">Index</param>
+            <param name="item">Item to insert</param>
+        </member>
+        <member name="M:VDS.Common.Collections.DuplicateSortedList`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the given index
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="P:VDS.Common.Collections.DuplicateSortedList`1.Count">
+            <summary>
+            Gets the number of items in the list
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.DuplicateSortedList`1.IsReadOnly">
+            <summary>
+            Gets whether the list is read only
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.DuplicateSortedList`1.Item(System.Int32)">
+            <summary>
+            Gets the value at the given index, setting the value at an index is unsupported
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerable`1">
+            <summary>
+            Abstract implementation of a wrapper enumerable that needs item equality
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerable`1">
+            <summary>
+            Abstract implementation of an enumerable that wraps another enumerable
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to wrap</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerable`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerable`1.InnerEnumerable">
+            <summary>
+            Gets the wrapped enumerable
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to wrap</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerable`1.EqualityComparer">
+            <summary>
+            Gets the equality comparer to use
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerator`1">
+            <summary>
+            Abstract implementation of a wrapper enumerator that needs item equality
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1">
+            <summary>
+            Abstract implementation of an enumerator that wraps another enumerator
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0})">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to wrap</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.Dispose">
+            <summary>
+            Disposes of this enumerator
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.MoveNext">
+            <summary>
+            Gets whether the enumerator can move to the next item
+            </summary>
+            <returns>True if another item is available, false otherwise</returns>
+            <remarks>
+            This differs to the abstract method <see cref="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.TryMoveNext(`0@)"/> which derived classes must implement to determine if it can move next and what the next item is
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Next item (if available)</param>
+            <returns>True if another item is available, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.Reset">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.ResetInternal">
+            <summary>
+            Takes any implementation specific reset actions, should be overridden by derived classes that need to reset internal state
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.InnerEnumerator">
+            <summary>
+            Gets the wrapped enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.Started">
+            <summary>
+            Gets/Sets whether the enumeration has started
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.Finished">
+            <summary>
+            Gets/Sets whether the enumeration has finished
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.Current">
+            <summary>
+            Gets/Sets the current item
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractWrapperEnumerator`1.System#Collections#IEnumerator#Current">
+            <summary>
+            Gets the current item
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to wrap</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractEqualityEnumerator`1.EqualityComparer">
+            <summary>
+            Gets the equality comparer to use
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerable`1">
+            <summary>
+            Abstract implementation of a wrapper enumerable that uses item ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to wrap</param>
+            <param name="comparer">Comparer to use</param>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerable`1.Comparer">
+            <summary>
+            Gets the comparer to use for ordering
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerator`1">
+            <summary>
+            Abstract implementation of a wrapper enumerator that uses item ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to wrap</param>
+            <param name="comparer">Comparer to use</param>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractOrderedEnumerator`1.Comparer">
+            <summary>
+            Gets the comparer to use for ordering
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractTopNEnumerable`1">
+            <summary>
+            Abstract implementation of a Top N enumerable
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="comparer">Comparer to use for ordering</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns>Enumerator</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractTopNEnumerable`1.N">
+            <summary>
+            Gets the maximum number of items to be yielded
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1">
+            <summary>
+            Abstract implementation of a Top N enumerator
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="comparer">Comparer to use for ordering</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if more items, false otherwise</returns>
+            <remarks>
+            If this is the first time the enumerator is trying to move next it will build the top items list by consuming the inner enumerator and storing the top N items in a temporary data structure.  Once it has done that it will then return items from that data structure until they are exhausted
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.ResetInternal">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.BuildTopItems">
+            <summary>
+            Requests that the top items enumerator be built
+            </summary>
+            <returns>Top Items enumerator</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.N">
+            <summary>
+            Gets the number of items to be returned
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AbstractTopNEnumerator`1.TopItemsEnumerator">
+            <summary>
+            Gets/Sets the Top Items enumerator
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AddIfMissingEnumerable`1">
+            <summary>
+            An enumerable that adds the given item if it is not seen in the inner enumerable
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfMissingEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0},`0)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+            <param name="item">Item to add if not present in inner enumerable</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfMissingEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfMissingEnumerable`1.AdditionalItem">
+            <summary>
+            Gets the additional item
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerable`1">
+            <summary>
+            An enumerable that adds an additional item if the enumerable it operates over is empty
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},`0)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="item">Item to add if enumerable is empty</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerable`1.AdditionalItem">
+            <summary>
+            Gets the item to be added if the enumerable is empty
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1">
+            <summary>
+            An enumerator that adds an item if the inner enumerator is empty
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},`0)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator</param>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if an item is available, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.ResetInternal">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.AdditionalItem">
+            <summary>
+            Gets the item to be added
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.AnyItemsSeen">
+            <summary>
+            Gets/Sets whether any items were seen
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfEmptyEnumerator`1.IsCurrentAdditionalItem">
+            <summary>
+            Gets whether we are currently returning the additional item
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1">
+            <summary>
+            An enumerator that adds an item if it is not present in the inner enumerator
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IEqualityComparer{`0},`0)">
+            <summary>
+            Create a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="equalityComparer">Equality Comparer to use</param>
+            <param name="item">Item to add if missing from inner enumerator</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.ResetInternal">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.AdditionalItemSeen">
+            <summary>
+            Gets/Sets whether the item to be added was seen in the inner enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.IsCurrentAdditionalItem">
+            <summary>
+            Gets/Sets whether we are currently returning the 
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.AddIfMissingEnumerator`1.AdditionalItem">
+            <summary>
+            Gets/Sets the additional item
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.EnumerableExtensions">
+            <summary>
+            Provides various extension methods which provide useful capabilities on enumerables
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.LongSkip``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Skips a given number of items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="toSkip">Number of items to skip</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.LongTake``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Takes a given number of items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="toTake">Number of items to take</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.AddIfMissing``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Adds an item to the enumerable provided it is not already present
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="item">Item to add if it is not already present</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.AddIfMissing``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0},``0)">
+            <summary>
+            Adds an item to the enumerable provided it is not already present
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+            <param name="item">Item to add if it is not already present</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.AddIfEmpty``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Adds an item if the enumerable is empty
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="item">Item to add if the enumerable is empty</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Reduced``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns an enumerable which eliminates adjacent duplicates from the given enumerable
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="enumerable">Enumerable</param>
+            <returns>Enumerable which removes adjacent duplicates</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Reduced``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Returns an enumerable which eliminates adjacent duplicates from the given enumerable
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="enumerable">Enumerable</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+            <returns>Enumerable which removes adjacent duplicates</returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.TopDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Gets the top N distinct items according to a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <param name="comparer">Comparer used to order items</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderBy().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.TopDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Gets the top N distinct items according to the default ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderBy().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Top``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Gets the top N items according to a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <param name="comparer">Comparer used to order items</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderBy().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Top``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Gets the top N items according to the default ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderBy().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.BottomDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Gets the bottom N items distinct according to a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <param name="comparer">Comparer used to order items</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderByDescending().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.BottomDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Gets the bottom N items distinct according to the default ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderByDescending().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Bottom``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Gets the bottom N items according to a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <param name="comparer">Comparer used to order items</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderByDescending().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.Bottom``1(System.Collections.Generic.IEnumerable{``0},System.Int64)">
+            <summary>
+            Gets the bottom N items according to a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="n">Number of items desired</param>
+            <returns></returns>
+            <remarks>
+            This differs from just doing a standard <code>.OrderByDescending().Take()</code> in that it does not need to hold the entire enumeration in memory at any time, it only ever holds at most <paramref name="n"/> items.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.ProbabilisticDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Int64,System.Func{``0,System.Int32},System.Func{``0,System.Int32})">
+            <summary>
+            Gets an enumerable whose items are probablisticly distinct, this may exclude some distinct items that a normal <see cref="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0})"/> would include
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="expectedItems">How many distinct items you expect to process</param>
+            <param name="errorRate">Desired error (false positive) rate, treated as 1 in N</param>
+            <param name="h1">Hash function</param>
+            <param name="h2">Another hash function</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.EnumerableExtensions.ProbabilisticDistinct``1(System.Collections.Generic.IEnumerable{``0},System.Int64,System.Double,System.Func{``0,System.Int32},System.Func{``0,System.Int32})">
+            <summary>
+            Gets an enumerable whose items are probablisticly distinct, this may exclude some distinct items that a normal <see cref="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0})"/> would include
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="expectedItems">How many distinct items you expect to process</param>
+            <param name="errorRate">Desired error (false positive) rate expressed as value between 0.0 and 1.0</param>
+            <param name="h1">Hash function</param>
+            <param name="h2">Another hash function</param>
+            <returns></returns>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.LongSkipEnumerable`1">
+            <summary>
+            An enumerable that skips items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int64)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="toSkip">Number of items to skip</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerable`1.GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongSkipEnumerable`1.ToSkip">
+            <summary>
+            Gets/Sets the number of items to skip
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1">
+            <summary>
+            An enumerator that skips items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Int64)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="toSkip">Number of items to skip</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.TrySkip">
+            <summary>
+            Tries to skip the desired number of items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+            <remarks>
+            The first time this is called it will try to skip the requisite number of items from the inner enumerator, if that succeeds it will then start returning items from the inner enumerator.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.ResetInternal">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.ToSkip">
+            <summary>
+            Gets/Sets the number of items to skip
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongSkipEnumerator`1.Skipped">
+            <summary>
+            Gets/Sets the number of items skipped
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.LongTakeEnumerable`1">
+            <summary>
+            An enumerable that takes some number of items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongTakeEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int64)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="toTake">Number of items to take</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongTakeEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongTakeEnumerable`1.ToTake">
+            <summary>
+            Gets/Sets the number of items to take
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1">
+            <summary>
+            An enumerator that takes some number of items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Int64)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="toTake">Number of items to take</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+            <remarks>
+            While the number of items seen is less than the desired number of items the inner enumerator is accessed normally, once that is reached no further items are returned
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1.ResetInternal">
+            <summary>
+            Resets the enumerator
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1.ToTake">
+            <summary>
+            Gets/Sets the number of items to take
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.LongTakeEnumerator`1.Taken">
+            <summary>
+            Gets/Sets the number of items taken
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerable`1">
+            <summary>
+            An enumerable that reduces another enumerable by using a bloom filter to give probably distinct results
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <remarks>
+            All items returned are guaranteed to be distinct (based upon the hash functions used for the filter) but some items may be erroneously omitted as bloom filters can produce false positives
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Func{VDS.Common.Filters.IBloomFilter{`0}})">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable</param>
+            <param name="filterFactory">Filter factory function</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerable`1.FilterFactory">
+            <summary>
+            Gets/Sets a factory method that produces a bloom filter to use
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerator`1">
+            <summary>
+            An enumerator that reduces another enumerator by using a bloom filter to give probably distinct results
+            </summary>
+            <typeparam name="T"></typeparam>
+            <remarks>
+            All items returned are guaranteed to be distinct (based upon the hash functions used for the filter) but some items may be erroneously omitted as bloom filters can produce false positives
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},VDS.Common.Filters.IBloomFilter{`0})">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="filter">Bloom filter to use for distinctness</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerator`1.ResetInternal">
+            <summary>
+            Resets the bloom filter used
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.ProbabilisticDistinctEnumerator`1.Filter">
+            <summary>
+            Gets/Sets the bloom filter to use
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.ReducedEnumerable`1">
+            <summary>
+            An enumerable that reduces the items returns by omitting adjacent duplicates
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ReducedEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ReducedEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.ReducedEnumerator`1">
+            <summary>
+            Gets an enumerator that reduces another enumerator by eliminating adjacent duplicates
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ReducedEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="equalityComparer">Equality comparer to use</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ReducedEnumerator`1.TryMoveNext(`0@)">
+            <summary>
+            Tries to move next
+            </summary>
+            <param name="item">Item</param>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.ReducedEnumerator`1.ResetInternal">
+            <summary>
+            Resets the 
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.ReducedEnumerator`1.First">
+            <summary>
+            Gets/Sets whether we are at the first item
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.ReducedEnumerator`1.LastItem">
+            <summary>
+            Gets the last item seen
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Comparers.ReferenceEqualityComparer`1">
+            <summary>
+            An equality comparer based purely on Object reference
+            </summary>
+            <typeparam name="T">Type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Comparers.ReferenceEqualityComparer`1.Equals(`0,`0)">
+            <summary>
+            Gets whether two items are reference equals
+            </summary>
+            <param name="x">Item</param>
+            <param name="y">Other item</param>
+            <returns>True if items are reference equals, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Comparers.ReferenceEqualityComparer`1.GetHashCode(`0)">
+            <summary>
+            Gets a hash code for an item
+            </summary>
+            <param name="obj">Item</param>
+            <returns>Hash code</returns>
+            <remarks>
+            Defers to <see cref="M:System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(System.Object)"/>
+            </remarks>
+        </member>
+        <member name="T:VDS.Common.Comparers.ReversedComparer`1">
+            <summary>
+            A comparer that reverses the ordering provided by another comparer
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Comparers.ReversedComparer`1.#ctor">
+            <summary>
+            Creates a new comparer that reverses the default ordering
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Comparers.ReversedComparer`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Creates a new comparer that reverses the given ordering
+            </summary>
+            <param name="comparer">Comparer</param>
+        </member>
+        <member name="M:VDS.Common.Comparers.ReversedComparer`1.Compare(`0,`0)">
+            <summary>
+            Compares two items
+            </summary>
+            <param name="x">Item</param>
+            <param name="y">Other item</param>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Comparers.ReversedComparer`1.InnerComparer">
+            <summary>
+            Gets the inner comparer
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.TopNDistinctEnumerator`1">
+            <summary>
+            An enumerator that returns the top N distinct items accoding to some ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNDistinctEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="comparer">Comparer to use</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNDistinctEnumerator`1.BuildTopItems">
+            <summary>
+            Builds the top items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.TopNDistinctEnumerator`1.TopItems">
+            <summary>
+            Gets/Sets the tree of stored items
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.TopNEnumerable`1">
+            <summary>
+            An enumerable that returns the top N items according to some ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable to operate over</param>
+            <param name="comparer">Comparer to use</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.TopNDistinctEnumerable`1">
+            <summary>
+            An enumerable that returns only the top N distinct items according to an ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <remarks>
+            This is a memory efficient implementation that only needs to store at most N items at any one time
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNDistinctEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerable
+            </summary>
+            <param name="enumerable">Enumerable</param>
+            <param name="comparer">Comparer to use</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNDistinctEnumerable`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VDS.Common.Collections.Enumerations.TopNEnumerator`1">
+            <summary>
+            An enumerator that returns the top N items based on a given ordering
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNEnumerator`1.#ctor(System.Collections.Generic.IEnumerator{`0},System.Collections.Generic.IComparer{`0},System.Int64)">
+            <summary>
+            Creates a new enumerator
+            </summary>
+            <param name="enumerator">Enumerator to operate over</param>
+            <param name="comparer">Comparer to use</param>
+            <param name="n">Number of items to return</param>
+        </member>
+        <member name="M:VDS.Common.Collections.Enumerations.TopNEnumerator`1.BuildTopItems">
+            <summary>
+            Builds the top items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:VDS.Common.Collections.Enumerations.TopNEnumerator`1.TopItems">
+            <summary>
+            Stores the top N items
+            </summary>
+        </member>
         <member name="T:VDS.Common.Collections.ImmutableView`1">
             <summary>
             An implementation of <see cref="T:System.Collections.Generic.ICollection`1"/> which is an immutable view over some enumerable
@@ -97,7 +1541,7 @@
         </member>
         <member name="T:VDS.Common.Collections.MaterializedImmutableView`1">
             <summary>
-            A version of <see cref="T:VDS.Common.Collections.ImmutableView`1"/> where the enumerable is materialized as a list
+            A version of <see cref="T:VDS.Common.Collections.ImmutableView`1"/> where the enumerable is materialized as a list internally
             </summary>
             <typeparam name="T">Type</typeparam>
         </member>
@@ -125,9 +1569,65 @@
             </summary>
             <param name="items">Enumerable to provide view over</param>
         </member>
+        <member name="M:VDS.Common.Collections.MaterializedImmutableView`1.Contains(`0)">
+            <summary>
+            Checks whether the collection contains a given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if the item is contained in the collection, false otherwise</returns>
+        </member>
         <member name="P:VDS.Common.Collections.MaterializedImmutableView`1.Count">
             <summary>
             Gets the count of items in the collection
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Collections.LinkedSparseArray`1">
+            <summary>
+            A memory efficient sparse array backed by a <see cref="T:System.Collections.Generic.LinkedList`1"/> thus it trades lookup performance off against memory.  
+            </summary>
+            <remarks>
+            <para>
+            This implementation is extremely memory efficient for sparse arrays since it only stores entries where the value has been set.  However the use of a linked list means lookup of a specific index is a worse case O(n) operation where n is the length of the list.
+            </para>
+            <para>
+            If fast access is preferred over memory efficiency then the <see cref="T:VDS.Common.Collections.BlockSparseArray`1"/> may be a better option
+            </para>
+            </remarks>
+            <typeparam name="T">Value type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Collections.LinkedSparseArray`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new sparse array with the given length
+            </summary>
+            <param name="length">Length</param>
+        </member>
+        <member name="M:VDS.Common.Collections.LinkedSparseArray`1.GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.LinkedSparseArray`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an enumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Collections.LinkedSparseArray`1.Clear">
+            <summary>
+            Clears the array
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Collections.LinkedSparseArray`1.Item(System.Int32)">
+            <summary>
+            Gets/Sets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="P:VDS.Common.Collections.LinkedSparseArray`1.Length">
+            <summary>
+            Gets the length of the array
             </summary>
         </member>
         <member name="T:VDS.Common.Collections.MultiDictionaryMode">
@@ -504,6 +2004,417 @@
             <param name="obj">Object</param>
             <returns></returns>
         </member>
+        <member name="T:VDS.Common.Filters.BaseBloomFilter`1">
+            <summary>
+            Abstract implementation of a bloom filter
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Filters.BaseBloomFilterParameters">
+            <summary>
+            Abstract implementation of bloom filter parameters
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.IBloomFilterParameters">
+            <summary>
+            Represents Bloom Filter parameters
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Filters.IBloomFilterParameters.NumberOfBits">
+            <summary>
+            Gets the number of bits used for the filter
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Filters.IBloomFilterParameters.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions used for the filter
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseBloomFilterParameters.NumberOfBits">
+            <summary>
+            Gets the number of bits
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseBloomFilterParameters.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.IBloomFilter`1">
+            <summary>
+            Interface for bloom filters which are a probabilistic data structure for detecting whether items have already been seen
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <remarks>
+            A bloom filter is a data structure that can be used to determine whether an item may have previously been seen in a memory efficient way that does not require storing the actual items.  The trade off is that it may yield false positives however it is guaranteed to never yield false negatives.  This makes it an ideal data structure for implementings things like distinctness where it doesn't matter if a few non-distinct items are discarded.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilter`1.Add(`0)">
+            <summary>
+            Adds an item to the filter
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if the item was added to the filter, false if item may already have been present and was not added</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilter`1.MayContain(`0)">
+            <summary>
+            Gets whether the filter may have already seen the given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if the item may have been seen, false otherwise</returns>
+            <remarks>
+            Bloom filters may return false positives hence why this method is named <strong>MayContain</strong> but they are guaranteed to never return false negatives
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilter`1.Clear">
+            <summary>
+            Clears the bloom filter i.e. resets it to a state where it has seen no items
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterStorage)">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="storage">Storage to use</param>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseBloomFilter`1.GetBitIndices(`0)">
+            <summary>
+            Converts an item into a number of bit indexes
+            </summary>
+            <param name="item">Item</param>
+            <returns>Bit Indices</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseBloomFilter`1.MayContain(`0)">
+            <summary>
+            Gets whether the filter may have already seen the given item
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if the item may have been seen, false otherwise</returns>
+            <remarks>
+            Bloom filters may return false positives hence why this method is named <strong>MayContain</strong> but they are guaranteed to never return false negatives
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseBloomFilter`1.Clear">
+            <summary>
+            Clears the filter
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseBloomFilter`1.Add(`0)">
+            <summary>
+            Adds an item to the filter
+            </summary>
+            <param name="item">Item</param>
+            <returns>True if the item was added to the filter, false if item may already have been present and was not added</returns>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseBloomFilter`1.Storage">
+            <summary>
+            Gets the storage in use
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.BaseHybridBloomFilter`1">
+            <summary>
+            Abstract implementation of a bloom filter
+            </summary>
+            <typeparam name="T"></typeparam>
+            <remarks>
+            This implementation is a hybrid of the naive and fast approaches provided by <see cref="T:VDS.Common.Filters.BaseNaiveBloomFilter`1"/> and <see cref="T:VDS.Common.Filters.BaseFastBloomFilter`1"/> in that it allows for users to provide more than two hash functions but uses the fast arithmetic technique to create any additional hash functions needed.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseHybridBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterStorage,VDS.Common.Filters.IBloomFilterParameters,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="storage">Bloom Filter storage</param>
+            <param name="parameters">Parameters</param>
+            <param name="hashFunctions">Hash Functions</param>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseHybridBloomFilter`1.GetBitIndices(`0)">
+            <summary>
+            Converts an item into a number of bit indexes
+            </summary>
+            <param name="item">Item</param>
+            <returns>Bit Indices</returns>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseHybridBloomFilter`1.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.BaseNaiveBloomFilter`1">
+            <summary>
+            Abstract implementation of a bloom filter
+            </summary>
+            <typeparam name="T"></typeparam>
+            <remarks>
+            This implementation is considered naive because it gives full control over the hash functions and number of bits to the end user
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseNaiveBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterStorage,System.Int32,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="storage">Bloom Filter storage</param>
+            <param name="bits">Number of Bits</param>
+            <param name="hashFunctions">Hash Functions</param>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseNaiveBloomFilter`1.GetBitIndices(`0)">
+            <summary>
+            Converts an item into a number of bit indexes
+            </summary>
+            <param name="item">Item</param>
+            <returns>Bit Indices</returns>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseNaiveBloomFilter`1.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.BaseFastBloomFilter`1">
+            <summary>
+            Abstract implementation of a fast bloom filter using the methodology outlined in <a href="http://citeseer.ist.psu.edu/viewdoc/download?doi=10.1.1.152.579&amp;rep=rep1&amp;type=pdf">Less Hashing, Same Performance: Building a Better Bloom Filter</a>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <remarks>
+            This implementation works on a technique described in the literature which shows that given two hash functions it is possible to simulate any number of hash functions by performing simple arithmetic combinations of the two hash functions outputs.  In practise this means that the hashing used by the bloom filter is significantly faster because it needs only calculate two hash functions for any given item and then can compute the necessary number of hash values by simple arithmetic operations.
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseFastBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterStorage,VDS.Common.Filters.IBloomFilterParameters,System.Func{`0,System.Int32},System.Func{`0,System.Int32})">
+            <summary>
+            Creates a new 
+            </summary>
+            <param name="storage">Bloom Filter Storage</param>
+            <param name="parameters">Parameters</param>
+            <param name="h1">First hash function</param>
+            <param name="h2">Second hash function</param>
+        </member>
+        <member name="M:VDS.Common.Filters.BaseFastBloomFilter`1.GetBitIndices(`0)">
+            <summary>
+            Converts the item into a number of bit indices
+            </summary>
+            <param name="item">Item</param>
+            <returns>Bit Indices</returns>
+        </member>
+        <member name="P:VDS.Common.Filters.BaseFastBloomFilter`1.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.BloomFilterParameters">
+            <summary>
+            Basic implementation of bloom filter parameters
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.BloomFilterParameters.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates new parameters
+            </summary>
+            <param name="numBits">Number of bits</param>
+            <param name="numHashFunctions">Number of hash functions</param>
+        </member>
+        <member name="P:VDS.Common.Filters.BloomFilterParameters.NumberOfHashFunctions">
+            <summary>
+            Gets the number of hash functions
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.BloomUtils">
+            <summary>
+            Provides utility functions for working with bloom filters
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.BloomUtils.CalculateBloomParameters(System.Int64,System.Int64)">
+            <summary>
+            Calculates the necessary parameters for a Bloom Filter
+            </summary>
+            <param name="expectedItems">Expected number of items that will be added to the filter</param>
+            <param name="errorRate">Desired error rate, the value given is treated as a 1 in N error rate</param>
+            <returns>Bloom Filter parameters</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.BloomUtils.CalculateBloomParameters(System.Int64,System.Double)">
+            <summary>
+            Calculates the necessary parameters for a Bloom Filter
+            </summary>
+            <param name="expectedItems">Expected number of items that will be added to the filter</param>
+            <param name="errorRate">Desired error rate given as a value between 0 and 1.0</param>
+            <returns>Bloom Filter parameters</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.BloomUtils.CalculateErrorRate(System.Int64,VDS.Common.Filters.IBloomFilterParameters)">
+            <summary>
+            Given some parameters and the expected number of items calculates the error rate
+            </summary>
+            <param name="expectedItems">Expected number of items that will be added to the filter</param>
+            <param name="parameters">Bloom Filter Parameters</param>
+            <returns>Error Rate as a value between 0 and 1.0</returns>
+        </member>
+        <member name="T:VDS.Common.Filters.FastBloomFilter`1">
+            <summary>
+            A fast bloom filter backed by an array
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:VDS.Common.Filters.FastBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterParameters,System.Func{`0,System.Int32},System.Func{`0,System.Int32})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="parameters">Parameters</param>
+            <param name="h1">Hash function 1</param>
+            <param name="h2">Hash function 2</param>
+        </member>
+        <member name="T:VDS.Common.Filters.SparseHybridBloomFilter`1">
+            <summary>
+            A hybrid bloom filter backed by an array
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Filters.SparseHybridBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterParameters,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="parameters">Parameters</param>
+            <param name="hashFunctions">Hash functions</param>
+        </member>
+        <member name="T:VDS.Common.Filters.IBloomFilterStorage">
+            <summary>
+            Interface for bloom filter storage
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilterStorage.IsSet(System.Int32)">
+            <summary>
+            Gets whether the given bit is set
+            </summary>
+            <param name="index">Index</param>
+            <returns>True if set, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilterStorage.Set(System.Int32)">
+            <summary>
+            Sets the given bit
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:VDS.Common.Filters.IBloomFilterStorage.Clear">
+            <summary>
+            Clears the storage i.e. unsets all the bits
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.HybridBloomFilter`1">
+            <summary>
+            A hybrid bloom filter backed by an array
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Filters.HybridBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterParameters,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="parameters">Parameters</param>
+            <param name="hashFunctions">Hash functions</param>
+        </member>
+        <member name="T:VDS.Common.Filters.NaiveBloomFilter`1">
+            <summary>
+            A naive bloom filter backed by an array
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <remarks>
+            This implementation is considered naive because it is entirely configured by the end user, consider using the <see cref="T:VDS.Common.Filters.FastBloomFilter`1"/> which uses a much better hashing approach that is faster and more robust
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Filters.NaiveBloomFilter`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="bits">Number of bits</param>
+            <param name="hashFunctions">Hash functions</param>
+        </member>
+        <member name="T:VDS.Common.Filters.SparseFastBloomFilter`1">
+            <summary>
+            Bloom filter implementation backed by a <see cref="T:VDS.Common.Collections.ISparseArray`1"/>
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Filters.SparseFastBloomFilter`1.#ctor(VDS.Common.Filters.IBloomFilterParameters,System.Func{`0,System.Int32},System.Func{`0,System.Int32})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="parameters">Parameters</param>
+            <param name="h1">Hash function 1</param>
+            <param name="h2">Hash function 2</param>
+        </member>
+        <member name="T:VDS.Common.Filters.SparseNaiveBloomFilter`1">
+            <summary>
+            Bloom filter implementation backed by a <see cref="T:VDS.Common.Collections.ISparseArray`1"/>
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+        </member>
+        <member name="M:VDS.Common.Filters.SparseNaiveBloomFilter`1.#ctor(System.Int32,System.Collections.Generic.IEnumerable{System.Func{`0,System.Int32}})">
+            <summary>
+            Creates a new filter
+            </summary>
+            <param name="bits">Number of bits</param>
+            <param name="hashFunctions">Hash functions</param>
+        </member>
+        <member name="T:VDS.Common.Filters.Storage.ArrayStorage">
+            <summary>
+            Array based storage for Bloom Filters
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.ArrayStorage.#ctor(System.Int32)">
+            <summary>
+            Creates new array storage
+            </summary>
+            <param name="size">Size in bits of the storage</param>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.ArrayStorage.IsSet(System.Int32)">
+            <summary>
+            Gets whether a given bit is set
+            </summary>
+            <param name="index">Index</param>
+            <returns>True if set, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.ArrayStorage.Set(System.Int32)">
+            <summary>
+            Sets a given bit
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.ArrayStorage.Clear">
+            <summary>
+            Clears the storage
+            </summary>
+        </member>
+        <member name="T:VDS.Common.Filters.Storage.SparseArrayStorage">
+            <summary>
+            A sparse array storage implementation for bloom filters
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.SparseArrayStorage.#ctor(VDS.Common.Filters.IBloomFilterParameters)">
+            <summary>
+            Creates new storage
+            </summary>
+            <param name="parameters">Parameters</param>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.SparseArrayStorage.#ctor(VDS.Common.Collections.ISparseArray{System.Boolean})">
+            <summary>
+            Creates new storage
+            </summary>
+            <param name="bits">Sparse array to use as storage</param>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.SparseArrayStorage.IsSet(System.Int32)">
+            <summary>
+            Gets whether a given bit is set
+            </summary>
+            <param name="index">Index</param>
+            <returns>True if set, false otherwise</returns>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.SparseArrayStorage.Set(System.Int32)">
+            <summary>
+            Sets a given bit
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:VDS.Common.Filters.Storage.SparseArrayStorage.Clear">
+            <summary>
+            Clears the storage
+            </summary>
+        </member>
         <member name="T:VDS.Common.References.NestedReference`1">
             <summary>
             Represents a reference whose value may change based on nesting level
@@ -620,13 +2531,30 @@
             </para>
             </remarks>
         </member>
-        <member name="T:VDS.Common.Trees.BinaryTree`3">
+        <member name="T:VDS.Common.Trees.BinaryTree`2">
             <summary>
             Abstract base implementation of an unbalanced binary search tree
             </summary>
-            <typeparam name="TNode">Tree Node Type</typeparam>
             <typeparam name="TKey">Key Type</typeparam>
             <typeparam name="TValue">Value Type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Trees.IBinaryTree`2">
+            <summary>
+            Interface for binary trees
+            </summary>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
+        </member>
+        <member name="T:VDS.Common.Trees.IIndexAccessTree`3">
+            <summary>
+            Interface for trees that support indexed access
+            </summary>
+            <remarks>
+            Indexes may not be stable depending on the underlying tree type
+            </remarks>
+            <typeparam name="TNode">Node type</typeparam>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
         </member>
         <member name="T:VDS.Common.Trees.ITree`3">
             <summary>
@@ -718,23 +2646,46 @@
             Gets the values in the tree
             </summary>
         </member>
-        <member name="F:VDS.Common.Trees.BinaryTree`3._comparer">
+        <member name="M:VDS.Common.Trees.IIndexAccessTree`3.GetValueAt(System.Int32)">
+            <summary>
+            Gets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value at the given index</returns>
+            <exception cref="T:System.IndexOutOfRangeException">Thrown if the index is not within the acceptable range for this tree</exception>
+        </member>
+        <member name="M:VDS.Common.Trees.IIndexAccessTree`3.SetValueAt(System.Int32,`2)">
+            <summary>
+            Sets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <param name="value">Value</param>
+            <exception cref="T:System.IndexOutOfRangeException">Thrown if the index is not within the acceptable range for this tree</exception>
+        </member>
+        <member name="M:VDS.Common.Trees.IIndexAccessTree`3.RemoveAt(System.Int32)">
+            <summary>
+            Removes the value (and corresponding key) at the given index
+            </summary>
+            <param name="index">Index</param>
+            <exception cref="T:System.IndexOutOfRangeException">Thrown if the index is not within the acceptable range for this tree</exception>
+        </member>
+        <member name="F:VDS.Common.Trees.BinaryTree`2._comparer">
             <summary>
             Key Comparer
             </summary>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.#ctor">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.#ctor">
             <summary>
             Creates a new unbalanced Binary Tree
             </summary>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.#ctor(System.Collections.Generic.IComparer{`1})">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.#ctor(System.Collections.Generic.IComparer{`0})">
             <summary>
             Creates a new unbalanced Binary Tree
             </summary>
             <param name="comparer">Comparer for keys</param>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.Add(`1,`2)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.Add(`0,`1)">
             <summary>
             Adds a Key Value pair to the tree, replaces an existing value if the key already exists in the tree
             </summary>
@@ -743,7 +2694,7 @@
             <returns></returns>
             <exception cref="T:System.ArgumentException">Thrown if a duplicate key is used</exception>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.CreateNode(VDS.Common.Trees.IBinaryTreeNode{`1,`2},`1,`2)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.CreateNode(VDS.Common.Trees.IBinaryTreeNode{`0,`1},`0,`1)">
             <summary>
             Creates a new node for the tree
             </summary>
@@ -752,14 +2703,14 @@
             <param name="value">Value</param>
             <returns></returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.Find(`1)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.Find(`0)">
             <summary>
             Finds a Node based on the key
             </summary>
             <param name="key">Key</param>
             <returns>Node associated with the given Key or null if the key is not present in the tree</returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.MoveToNode(`1,System.Boolean@)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.MoveToNode(`0,System.Boolean@)">
             <summary>
             Moves to the node with the given key inserting a new node if necessary
             </summary>
@@ -767,55 +2718,49 @@
             <param name="created">Whether a new node was inserted</param>
             <returns></returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.AfterLeftInsert(VDS.Common.Trees.IBinaryTreeNode{`1,`2},VDS.Common.Trees.IBinaryTreeNode{`1,`2})">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.AfterLeftInsert(VDS.Common.Trees.IBinaryTreeNode{`0,`1},VDS.Common.Trees.IBinaryTreeNode{`0,`1})">
             <summary>
             Virtual method that can be used by derived implementations to perform tree balances after an insert
             </summary>
             <param name="parent">Parent</param>
             <param name="node">Newly inserted node</param>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.AfterRightInsert(VDS.Common.Trees.IBinaryTreeNode{`1,`2},VDS.Common.Trees.IBinaryTreeNode{`1,`2})">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.AfterRightInsert(VDS.Common.Trees.IBinaryTreeNode{`0,`1},VDS.Common.Trees.IBinaryTreeNode{`0,`1})">
             <summary>
             Virtual method that can be used by derived implementations to perform tree balances after an insert
             </summary>
             <param name="parent">Parent</param>
             <param name="node">Newly inserted node</param>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.Remove(`1)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.Remove(`0)">
             <summary>
             Removes a Node based on the Key
             </summary>
             <param name="key">Key</param>
             <returns>True if a Node was removed</returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.FindLeftmostChild(`0)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.RemoveNode(VDS.Common.Trees.IBinaryTreeNode{`0,`1},System.Int32)">
             <summary>
-            Finds the leftmost child of the given node
+            Removes a node
             </summary>
-            <param name="node">Node</param>
-            <returns></returns>
+            <param name="current">Node to be removed</param>
+            <param name="c">Comparison of this node versus its parent</param>
+            <returns>True if node removed</returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.FindRightmostChild(`0)">
-            <summary>
-            Finds the rightmost child of the given node
-            </summary>
-            <param name="node">Node</param>
-            <returns></returns>
-        </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.AfterDelete(`0)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.AfterDelete(VDS.Common.Trees.IBinaryTreeNode{`0,`1})">
             <summary>
             Virtual method that can be used by derived implementations to perform tree balances after a delete
             </summary>
             <param name="node">Node at which the deletion happened</param>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.ContainsKey(`1)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.ContainsKey(`0)">
             <summary>
             Determines whether a given Key exists in the Tree
             </summary>
             <param name="key">Key</param>
             <returns>True if the key exists in the Tree</returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.TryGetValue(`1,`2@)">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.TryGetValue(`0,`1@)">
             <summary>
             Tries to get a value based on a key
             </summary>
@@ -823,22 +2768,50 @@
             <param name="value">Value or default for the value type if the key is not present</param>
             <returns>True if there is a value associated with the key</returns>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.Clear">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.MoveToIndex(System.Int32)">
+            <summary>
+            Tries to move to a node based on its index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Node</returns>
+            <exception cref="T:System.IndexOutOfRangeException">Thrown if the index is out of range</exception>
+        </member>
+        <member name="M:VDS.Common.Trees.BinaryTree`2.GetValueAt(System.Int32)">
+            <summary>
+            Gets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <returns>Value</returns>
+        </member>
+        <member name="M:VDS.Common.Trees.BinaryTree`2.SetValueAt(System.Int32,`1)">
+            <summary>
+            Sets the value at the given index
+            </summary>
+            <param name="index">Index</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:VDS.Common.Trees.BinaryTree`2.RemoveAt(System.Int32)">
+            <summary>
+            Removes the key-value pair at the given index
+            </summary>
+            <param name="index">Index</param>
+        </member>
+        <member name="M:VDS.Common.Trees.BinaryTree`2.Clear">
             <summary>
             Clears the tree
             </summary>
         </member>
-        <member name="M:VDS.Common.Trees.BinaryTree`3.AfterClear">
+        <member name="M:VDS.Common.Trees.BinaryTree`2.AfterClear">
             <summary>
             Virtual method that can be used by derived implementations to perform clean up after a clear
             </summary>
         </member>
-        <member name="P:VDS.Common.Trees.BinaryTree`3.Root">
+        <member name="P:VDS.Common.Trees.BinaryTree`2.Root">
             <summary>
             Gets/Sets the Root of the Tree
             </summary>
         </member>
-        <member name="P:VDS.Common.Trees.BinaryTree`3.Item(`1)">
+        <member name="P:VDS.Common.Trees.BinaryTree`2.Item(`0)">
             <summary>
             Gets/Sets the value for a key
             </summary>
@@ -846,17 +2819,17 @@
             <returns>Returns the value associated with the key</returns>
             <exception cref="T:System.Collections.Generic.KeyNotFoundException">Thrown if the key doesn't exist</exception>
         </member>
-        <member name="P:VDS.Common.Trees.BinaryTree`3.Nodes">
+        <member name="P:VDS.Common.Trees.BinaryTree`2.Nodes">
             <summary>
             Gets the Nodes of the Tree
             </summary>
         </member>
-        <member name="P:VDS.Common.Trees.BinaryTree`3.Keys">
+        <member name="P:VDS.Common.Trees.BinaryTree`2.Keys">
             <summary>
             Gets the Keys of the Tree
             </summary>
         </member>
-        <member name="P:VDS.Common.Trees.BinaryTree`3.Values">
+        <member name="P:VDS.Common.Trees.BinaryTree`2.Values">
             <summary>
             Gets the Values of the Tree
             </summary>
@@ -969,7 +2942,12 @@
         </member>
         <member name="M:VDS.Common.Trees.IBinaryTreeNode`2.RecalculateHeight">
             <summary>
-            Indicates that the node should recauclate the height of the subtree it represents
+            Indicates that the node should recalculate the height of the subtree it represents
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Trees.IBinaryTreeNode`2.RecalculateSize">
+            <summary>
+            Indicates that the node should recalculate the size of the subtree it represents
             </summary>
         </member>
         <member name="P:VDS.Common.Trees.IBinaryTreeNode`2.LeftChild">
@@ -997,6 +2975,11 @@
             Gets the Height of the subtree this node represents
             </summary>
         </member>
+        <member name="P:VDS.Common.Trees.IBinaryTreeNode`2.Size">
+            <summary>
+            Gets the size of the subtree this node represents i.e. number of nodes including this node
+            </summary>
+        </member>
         <member name="M:VDS.Common.Trees.BinaryTreeNode`2.#ctor(VDS.Common.Trees.IBinaryTreeNode{`0,`1},`0,`1)">
             <summary>
             Creates a new Binary Tree Node
@@ -1008,6 +2991,11 @@
         <member name="M:VDS.Common.Trees.BinaryTreeNode`2.RecalculateHeight">
             <summary>
             Recalculates the height of the subtree
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Trees.BinaryTreeNode`2.RecalculateSize">
+            <summary>
+            Recalculates the size of the subtree
             </summary>
         </member>
         <member name="M:VDS.Common.Trees.BinaryTreeNode`2.ToString">
@@ -1048,12 +3036,17 @@
         </member>
         <member name="P:VDS.Common.Trees.BinaryTreeNode`2.ChildCount">
             <summary>
-            Gets the number of child nodes present (0, 1 or 2)
+            Gets the number of child nodes present (0, or 1)
             </summary>
         </member>
         <member name="P:VDS.Common.Trees.BinaryTreeNode`2.Height">
             <summary>
             Gets the height of the subtree
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Trees.BinaryTreeNode`2.Size">
+            <summary>
+            Gets the size of the subtree i.e. number of nodes including this node in the count
             </summary>
         </member>
         <member name="P:VDS.Common.Trees.BinaryTreeNode`2.Nodes">
@@ -1069,7 +3062,7 @@
             <typeparam name="TKey">Key type</typeparam>
             <typeparam name="TValue">Value type</typeparam>
         </member>
-        <member name="M:VDS.Common.Trees.NodesEnumerable`3.#ctor(VDS.Common.Trees.BinaryTree{`0,`1,`2})">
+        <member name="M:VDS.Common.Trees.NodesEnumerable`3.#ctor(VDS.Common.Trees.IBinaryTree{`1,`2})">
             <summary>
             Creates a new nodes enumerable for a binary tree
             </summary>
@@ -1318,6 +3311,20 @@
             <typeparam name="TValue">Valye Type</typeparam>
             <param name="node">Node</param>
             <returns></returns>
+        </member>
+        <member name="M:VDS.Common.Trees.TreeExtensions.FindLeftmostChild``2(VDS.Common.Trees.IBinaryTreeNode{``0,``1})">
+            <summary>
+            Finds the leftmost child of the given node
+            </summary>
+            <param name="node">Node</param>
+            <returns>Leftmost child or self if no left children</returns>
+        </member>
+        <member name="M:VDS.Common.Trees.TreeExtensions.FindRightmostChild``2(VDS.Common.Trees.IBinaryTreeNode{``0,``1})">
+            <summary>
+            Finds the rightmost child of the given node
+            </summary>
+            <param name="node">Node</param>
+            <returns>Rightmost child of self if no right children</returns>
         </member>
         <member name="T:VDS.Common.Trees.UnbalancedBinaryTree`2">
             <summary>
@@ -1676,6 +3683,62 @@
             The ability to provide a custom mapping function allows you to do custom lookups into the Trie.  For example you might want to only match some portion of the key rather than the entire key
             </remarks>
         </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindPredecessor(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given sequence of Key Bits
+            </summary>
+            <param name="bs">Key Bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a specific seqeunce of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindPredecessor(`0)">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given Key
+            </summary>
+            <param name="key">Key</param>
+            <returns>Null if the Key does not map to a Node</returns>
+        </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindPredecessor(`0,System.Func{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given Key using the given Key to Key Bit mapping function
+            </summary>
+            <param name="key">Key</param>
+            <param name="keyMapper">Function to map keys to key bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a custom mapping function allows you to do custom lookups into the Trie.  For example you might want to only match some portion of the key rather than the entire key
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindSuccessor(`0)">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given Key
+            </summary>
+            <param name="key">Key</param>
+            <returns>Null if the Key does not map to a Node</returns>
+        </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindSuccessor(`0,System.Func{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given Key using the given Key to Key Bit mapping function
+            </summary>
+            <param name="key">Key</param>
+            <param name="keyMapper">Function to map keys to key bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a custom mapping function allows you to do custom lookups into the Trie.  For example you might want to only match some portion of the key rather than the entire key
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.ITrie`3.FindSuccessor(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given sequence of Key Bits
+            </summary>
+            <param name="bs">Key Bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a specific seqeunce of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
+            </remarks>
+        </member>
         <member name="M:VDS.Common.Tries.ITrie`3.MoveToNode(`0)">
             <summary>
             Moves to the Node associated with the given Key creating new nodes if necessary
@@ -1803,7 +3866,63 @@
             <param name="bs">Key Bits</param>
             <returns>Null if the Key does not map to a Node</returns>
             <remarks>
-            The ability to provide a specific seqeunce of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
+            The ability to provide a specific sequence of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindPredecessor(`0)">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given sequence of Key Bits
+            </summary>
+            <param name="key">Key</param>
+            <returns>Null if the Key does not map to any nodes</returns>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindPredecessor(`0,System.Func{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given Key
+            </summary>
+            <param name="key">Key</param>
+            <param name="keyMapper">Mapper that decomposes the key into the key bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a custom mapping function allows you to do custom lookups into the Trie.  For example you might want to only match some portion of the key rather than the entire key
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindPredecessor(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Finds and returns a Node that has the longest prefix match for the given Key using the given Key to Key Bit mapping function
+            </summary>
+            <param name="bs">Key bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a specific sequence of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindSuccessor(`0)">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given sequence of Key Bits
+            </summary>
+            <param name="key">Key</param>
+            <returns>Null if the Key does not map to a Node</returns>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindSuccessor(`0,System.Func{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given Key
+            </summary>
+            <param name="key">Key</param>
+            <param name="keyMapper">Mapper that decomposes the key into the key bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a custom mapping function allows you to do custom lookups into the Trie.  For example you might want to only match some portion of the key rather than the entire key
+            </remarks>
+        </member>
+        <member name="M:VDS.Common.Tries.AbstractTrie`3.FindSuccessor(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Finds and returns a Node that has the shortest prefix match greater than or equal to the given Key using the given Key to Key Bit mapping function
+            </summary>
+            <param name="bs">Key Bits</param>
+            <returns>Null if the Key does not map to a Node</returns>
+            <remarks>
+            The ability to provide a specific sequence of key bits may be useful for custom lookups where you don't necessarily have a value of the <strong>TKey</strong> type but do have values of the <strong>TKeyBit</strong> type
             </remarks>
         </member>
         <member name="M:VDS.Common.Tries.AbstractTrie`3.MoveToNode(`0)">
@@ -1829,6 +3948,11 @@
         <member name="P:VDS.Common.Tries.AbstractTrie`3.Root">
             <summary>
             Gets the Root Node of the Trie
+            </summary>
+        </member>
+        <member name="P:VDS.Common.Tries.AbstractTrie`3.KeyBitComparer">
+            <summary>
+            Key comparer used for ordered operations like FindSuccessor
             </summary>
         </member>
         <member name="P:VDS.Common.Tries.AbstractTrie`3.Item(`0)">
@@ -2148,6 +4272,36 @@
             </summary>
             <param name="parent">Parent node of this node</param>
             <param name="key">Key Bit</param>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.EnterReadLock">
+            <summary>
+            Enters a read lock on this node
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.ExitReadLock">
+            <summary>
+            Exits a read lock on this node
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.EnterUpgradeableReadLock">
+            <summary>
+            Enters an upgradeable read lock on this node
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.ExitUpgradeableReadLock">
+            <summary>
+            Exits an upgradeable read lock on this node
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.EnterWriteLock">
+            <summary>
+            Enters a write lock on this node
+            </summary>
+        </member>
+        <member name="M:VDS.Common.Tries.TrieNode`2.ExitWriteLock">
+            <summary>
+            Exits a write lock on this node
+            </summary>
         </member>
         <member name="M:VDS.Common.Tries.TrieNode`2.GetChild(`0)">
             <summary>

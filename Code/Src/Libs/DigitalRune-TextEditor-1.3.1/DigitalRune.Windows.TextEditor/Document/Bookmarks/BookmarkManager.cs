@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using DigitalRune.Windows.TextEditor.Document;
-
+#if DEBUG
+    using DigitalRune.Windows.TextEditor.Utilities;
+#endif
 
 namespace DigitalRune.Windows.TextEditor.Bookmarks
 {

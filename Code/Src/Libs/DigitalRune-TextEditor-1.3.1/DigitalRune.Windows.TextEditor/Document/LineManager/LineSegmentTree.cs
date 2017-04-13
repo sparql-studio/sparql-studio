@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using DigitalRune.Windows.TextEditor.Utilities;
-
+#if DEBUG
+using System.Diagnostics;
+#endif
 
 namespace DigitalRune.Windows.TextEditor.Document
 {
