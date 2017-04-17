@@ -136,6 +136,16 @@ namespace DigitalRune.Windows.TextEditor
       get { return _secondaryTextArea != null; }
     }
 
+    /// <summary>
+    /// Timeout (in milliseconds) between last key pressed and autocomplete window trigger
+    /// </summary>
+    [Browsable(false)]
+    public Int32 KeyAutocompleteTimeout
+    {
+        get { return _keyAutocompleteTimeout; }
+        set { _keyAutocompleteTimeout = value; }
+    }
+    Int32 _keyAutocompleteTimeout = 600;
 
     /// <summary>
     /// Occurs when the active text area changes.
@@ -178,6 +188,7 @@ namespace DigitalRune.Windows.TextEditor
     public event MouseEventHandler ContextMenuRequest;
     #endregion
 
+    Timer _timerKeyAutocomplete = new Timer();
 
     //--------------------------------------------------------------
     #region Creation and Cleanup
@@ -206,8 +217,9 @@ namespace DigitalRune.Windows.TextEditor
       ResizeRedraw = true;
       Document.UpdateCommited += CommitUpdateRequested;
       OptionsChanged();
-    }
 
+       _timerKeyAutocomplete.Tick += OnTimerKeyAutocompleteTimeout;
+    }
 
     /// <summary>
     /// Releases unmanaged and - optionally - managed resources
@@ -448,7 +460,6 @@ namespace DigitalRune.Windows.TextEditor
         handler(this, keyEventArgs);
     }
 
-
     private void TextArea_KeyPress(object sender, KeyPressEventArgs keyEventArgs)
     {
       if (_inHandleKeyPress)
@@ -458,7 +469,6 @@ namespace DigitalRune.Windows.TextEditor
       OnTextAreaKeyPress(keyEventArgs);
       if (keyEventArgs.Handled)
         return;
-
 
       _inHandleKeyPress = true;
       try
@@ -479,9 +489,13 @@ namespace DigitalRune.Windows.TextEditor
         }
         else if (!keyEventArgs.Handled && EnableCompletion)
         {
-          // Request completion window
-          CompletionEventArgs e = new CompletionEventArgs(ch);
-          OnCompletionRequest(e);
+            if ( (!CompletionWindowVisible) && (!Char.IsWhiteSpace(ch)) )
+            {
+                _timerKeyAutocomplete.Interval = KeyAutocompleteTimeout;
+                _timerKeyAutocomplete.Stop();
+                _timerKeyAutocomplete.Tag = ch;
+                _timerKeyAutocomplete.Start();
+            }
         }
       }
       //catch (Exception exception)
@@ -494,6 +508,17 @@ namespace DigitalRune.Windows.TextEditor
       }
     }
 
+    private void OnTimerKeyAutocompleteTimeout(object sender, EventArgs e)
+    {
+        // Request completion window
+        Timer timer = (Timer)sender;
+        timer.Enabled = false;
+        if (!CompletionWindowVisible)
+        {
+            CompletionEventArgs ev = new CompletionEventArgs(timer.Tag != null ? (char)timer.Tag : '\0');
+            OnCompletionRequest(ev);
+        }
+    }
 
     /// <summary>
     /// Raises the <see cref="TextAreaKeyPress"/> event.

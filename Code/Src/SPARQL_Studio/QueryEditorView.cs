@@ -60,7 +60,9 @@ namespace dk.ModularSystems.Sparql
         }
 
         #endregion IView
-            
+
+        static SparqlCompletionDataProvider _completionDataProvider = new SparqlCompletionDataProvider();
+
         public QueryEditorView()
         {
             InitializeComponent();
@@ -130,8 +132,7 @@ namespace dk.ModularSystems.Sparql
                     SparqlCompletionDataProvider.Ontologies = ((IQueryController)Controller).Ontologies;
                 }
             }
-            var complDataProvider = new SparqlAutoCompletion.SparqlCompletionDataProvider();
-            textEditorControl1.ShowCompletionWindow(complDataProvider, e.Key, closeAutomatically: true);
+            textEditorControl1.ShowCompletionWindow(_completionDataProvider, e.Key, closeAutomatically: true);
         }
 
         async void Document_DocumentChanged(object sender, DigitalRune.Windows.TextEditor.Document.DocumentEventArgs e)
