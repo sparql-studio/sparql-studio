@@ -117,6 +117,16 @@ namespace dk.ModularSystems.Sparql
             return resBrowserView;
         }
 
+        public ITextEditorView CreateNewTextViewerView(String text, ITextEditorController controller)
+        {
+            var textViewerContainer = new DockViewContainer<TextEditorView, ITextEditorController>(controller);
+            InsertInDockPanel(dockPanel1, textViewerContainer);
+            ITextEditorView textEditorView = textViewerContainer.GetView();
+            textEditorView.SetText(text);
+            textEditorView.ReadOnly = true;
+            return textEditorView;
+        }
+
         public void ReportError(Exception exception)
         {
             var errorView = new ErrorView(exception);

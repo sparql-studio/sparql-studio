@@ -20,10 +20,11 @@ using dk.ModularSystems.Sparql.Ontology;
 using dk.ModularSystems.Sparql.Settings;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
+using System.Net.Http;
 
 namespace dk.ModularSystems.Sparql
 {
-    public class AppController : IAppController, IQueryController, IQueryResultsController, IResourceBrowserController, IFilePickerController
+    public class AppController : IAppController, IQueryController, IQueryResultsController, IResourceBrowserController, IFilePickerController, ITextEditorController
     {
         public IAppView AppView { get; private set;}
         public String SparqlEndPointUriString { get; set; }
@@ -195,13 +196,44 @@ namespace dk.ModularSystems.Sparql
 
         #endregion IQueryController
 
+        #region ITextEditorController
+
+        public void OnSave(ITextEditorView sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSaveAs(ITextEditorView sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
         #region IQueryResultsController
 
-        public void OnResultSelected(SparqlResult result, Object field, String fieldName)
+        public async void OnResultSelected(SparqlResult result, Object field, String fieldName)
         {
             if (field.ToString().ToLower().ToString().StartsWith("http://"))
             {
-                AppView.CreateNewResourceBrowserView(field.ToString(), this);
+                String url = field.ToString();
+                var httpClient = new HttpClient();
+                HttpResponseMessage response = await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Head, url));
+                if ( response.Content.Headers.ContentType.MediaType == "text/html")
+                {
+                    AppView.CreateNewResourceBrowserView(field.ToString(), this);
+                }
+                else 
+                {
+                    response = await httpClient.GetAsync(url);
+                    String responseText = await response.Content.ReadAsStringAsync();
+
+                    if (response.Content.Headers.ContentType.MediaType == "application/json")
+                    {
+                        responseText = Newtonsoft.Json.Linq.JValue.Parse(responseText).ToString(Newtonsoft.Json.Formatting.Indented);
+                    }
+                    AppView.CreateNewTextViewerView(responseText, this);
+                }
             }
         }
 
@@ -398,7 +430,7 @@ namespace dk.ModularSystems.Sparql
         //    _uiContext.Post(
         //        new SendOrPostCallback(s =>
         //        {
-                    
+
         //            AppView.CreateNewQueryResultsView(result, this);
         //        }), state);
         //}

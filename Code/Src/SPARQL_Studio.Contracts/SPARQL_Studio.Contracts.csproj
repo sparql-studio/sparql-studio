@@ -58,6 +58,7 @@
     <Compile Include="Controllers\IAppController.cs" />
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\IFilePickerController.cs" />
+    <Compile Include="Controllers\ITextEditorController.cs" />
     <Compile Include="Controllers\IQueryController.cs" />
     <Compile Include="Controllers\IQueryResultsController.cs" />
     <Compile Include="Controllers\IResourceBrowserController.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Views\IAppView.cs" />
     <Compile Include="Views\IFilePickerView.cs" />
     <Compile Include="Views\IQueryResultsView.cs" />
+    <Compile Include="Views\ITextEditorView.cs" />
     <Compile Include="Views\IQueryView.cs" />
     <Compile Include="Views\IResourceBrowserView.cs" />
     <Compile Include="Views\IView.cs" />

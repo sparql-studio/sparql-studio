@@ -22,6 +22,7 @@ namespace dk.ModularSystems.Sparql.Contracts
 
         IQueryResultsView CreateNewQueryResultsView(SparqlQueryResultsInfo results, IQueryResultsController controller);
         IResourceBrowserView CreateNewResourceBrowserView(String resourceUri, IResourceBrowserController controller);
+        ITextEditorView CreateNewTextViewerView(String text, ITextEditorController controller);
 
         void OpenQuery(IQueryController controller);
         void OpenQuery(IQueryController controller, String pathName);
