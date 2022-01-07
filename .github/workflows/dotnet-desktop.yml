@@ -39,6 +39,8 @@
 name: .NET Core Desktop
 
 on:
+  workflow_dispatch:
+    
   push:
     branches: [ dev_experimental ]
   pull_request:
