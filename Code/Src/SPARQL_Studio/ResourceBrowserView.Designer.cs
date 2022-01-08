@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResourceBrowserView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.txtUrl = new System.Windows.Forms.ToolStripTextBox();
             this.btnBack = new System.Windows.Forms.ToolStripButton();
             this.btnForward = new System.Windows.Forms.ToolStripButton();
-            this.lbLink = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.btnOpenInBrowser = new System.Windows.Forms.ToolStripButton();
+            this.txtUrl = new System.Windows.Forms.ToolStripTextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lbLink = new System.Windows.Forms.ToolStripStatusLabel();
+            this.webBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,34 +55,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(828, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser1.Location = new System.Drawing.Point(3, 28);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(825, 385);
-            this.webBrowser1.TabIndex = 1;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbLink});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 416);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.ReadOnly = true;
-            this.txtUrl.Size = new System.Drawing.Size(300, 25);
             // 
             // btnBack
             // 
@@ -105,12 +77,6 @@
             this.btnForward.Text = "Forward";
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
-            // lbLink
-            // 
-            this.lbLink.Name = "lbLink";
-            this.lbLink.Size = new System.Drawing.Size(13, 17);
-            this.lbLink.Text = "  ";
-            // 
             // btnRefresh
             // 
             this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -132,12 +98,47 @@
             this.btnOpenInBrowser.Text = "Open in browser";
             this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
             // 
+            // txtUrl
+            // 
+            this.txtUrl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.ReadOnly = true;
+            this.txtUrl.Size = new System.Drawing.Size(300, 25);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lbLink});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 416);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lbLink
+            // 
+            this.lbLink.Name = "lbLink";
+            this.lbLink.Size = new System.Drawing.Size(13, 17);
+            this.lbLink.Text = "  ";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.ActivateBrowserOnCreation = false;
+// TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 25);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(828, 391);
+            this.webBrowser1.TabIndex = 3;
+            this.webBrowser1.TextChanged += new System.EventHandler(this.chromiumWebBrowser1_TextChanged);
+            // 
             // ResourceBrowserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ResourceBrowserView";
             this.Size = new System.Drawing.Size(828, 438);
@@ -153,7 +154,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripButton btnBack;
         private System.Windows.Forms.ToolStripButton btnForward;
         private System.Windows.Forms.ToolStripTextBox txtUrl;
@@ -161,5 +161,6 @@
         private System.Windows.Forms.ToolStripButton btnRefresh;
         private System.Windows.Forms.ToolStripButton btnOpenInBrowser;
         private System.Windows.Forms.ToolStripStatusLabel lbLink;
+        private CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
     }
 }

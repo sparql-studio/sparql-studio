@@ -22,14 +22,22 @@ namespace dk.ModularSystems.Sparql
         {
             InitializeComponent();
 
-            webBrowser1.DocumentTitleChanged += webBrowser1_DocumentTitleChanged;
-            webBrowser1.DocumentCompleted += webBrowser1_DocumentCompleted;
-            webBrowser1.CanGoBackChanged += webBrowser1_CanGoBackChanged;
-            webBrowser1.CanGoForwardChanged += webBrowser1_CanGoForwardChanged;
-            webBrowser1.Navigated += webBrowser1_Navigated;
+            webBrowser1.LoadingStateChanged += WebBrowser1_LoadingStateChanged;
+            webBrowser1.TitleChanged += WebBrowser1_TitleChanged;
 
             btnBack.Enabled = false;
             btnForward.Enabled = false;
+        }
+
+        private void WebBrowser1_TitleChanged(object sender, CefSharp.TitleChangedEventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke( new Action( () => { 
+                                                 this.Title = e.Title;
+                                                 ContentChanged(this);
+                                                } ));
+            }
         }
 
         void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs args)
@@ -39,7 +47,6 @@ namespace dk.ModularSystems.Sparql
 
         void webBrowser1_CanGoForwardChanged(object sender, EventArgs e)
         {
-            btnForward.Enabled = webBrowser1.CanGoForward;
         }
 
         void webBrowser1_CanGoBackChanged(object sender, EventArgs e)
@@ -47,11 +54,14 @@ namespace dk.ModularSystems.Sparql
             btnBack.Enabled = webBrowser1.CanGoBack;
         }
 
-        void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        private void WebBrowser1_LoadingStateChanged(object sender, CefSharp.LoadingStateChangedEventArgs e)
         {
-            if (webBrowser1.Document != null)
+            if (this.InvokeRequired)
             {
-                webBrowser1.Document.MouseOver += Document_MouseOver;
+                this.Invoke(new Action(() => {
+                    btnForward.Enabled = e.CanGoForward;
+                    btnBack.Enabled = e.CanGoBack;
+                }));
             }
         }
 
@@ -73,14 +83,6 @@ namespace dk.ModularSystems.Sparql
             }
         }
 
-        void webBrowser1_DocumentTitleChanged(object sender, EventArgs e)
-        {
-            if (ContentChanged != null)
-            {
-                ContentChanged(this);
-            }
-        }
-
         public ResourceBrowserView(IResourceBrowserController controller) :
             this()
         {
@@ -91,11 +93,7 @@ namespace dk.ModularSystems.Sparql
 
         public void GotoResource(string resourceUriString)
         {
-            webBrowser1.Navigate(resourceUriString);
-            if (ContentChanged != null)
-            {
-                ContentChanged(this);
-            }
+            webBrowser1.LoadUrl(resourceUriString);
         }
 
         #endregion
@@ -117,20 +115,7 @@ namespace dk.ModularSystems.Sparql
             get { return false; }
         }
 
-        public string Title
-        {
-            get
-            {
-                if (!String.IsNullOrEmpty(webBrowser1.DocumentTitle))
-                {
-                    return webBrowser1.DocumentTitle;
-                }
-                return (webBrowser1.Url != null)
-                    ? webBrowser1.Url.ToString()
-                    : "<>";
-
-            }
-        }
+        public string Title { get; private set; }
 
         public event Action<object> ContentChanged;
         public event Action<object> ContentSaved { add { } remove { } }
@@ -139,22 +124,22 @@ namespace dk.ModularSystems.Sparql
 
         public void Back()
         {
-            webBrowser1.GoBack();
+            webBrowser1.BrowserCore.GoBack();
         }
 
         public void Forward()
         {
-            webBrowser1.GoForward();
+            webBrowser1.BrowserCore.GoForward();
         }
 
         public void ReloadPage()
         {
-            webBrowser1.Refresh();
+            webBrowser1.BrowserCore.Reload();
         }
 
         public void OpenCurrentPageInBrowser()
         {
-            Process.Start(webBrowser1.Url.ToString());
+            Process.Start(webBrowser1.Address);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -177,6 +162,12 @@ namespace dk.ModularSystems.Sparql
             OpenCurrentPageInBrowser();
         }
 
-
+        private void chromiumWebBrowser1_TextChanged(object sender, EventArgs e)
+        {
+            if (ContentChanged != null)
+            {
+                ContentChanged(this);
+            }
+        }
     }
 }
