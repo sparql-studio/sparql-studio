@@ -23,7 +23,7 @@ PREFIX yago: <http://dbpedia.org/class/yago/>
 
 SELECT ?country ?countryName WHERE 
 {
-    ?country rdf:type yago:LandlockedCountries ;
+    ?country rdf:type yago:WikicatLandlockedCountries ;
     		 rdf:type dbo:Country .
    	?country rdfs:label ?countryName .
 }
