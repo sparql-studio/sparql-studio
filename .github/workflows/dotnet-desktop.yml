@@ -60,7 +60,7 @@ jobs:
     env:
       Solution_Name: Code\SPARQL_Studio.sln                                                 # solution name
       # Test_Project_Path: your-test-project-path                                           # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: Packaging\SPARQL_Studio_Package                                # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Directory: Code\Packaging\SPARQL_Studio_Package                           # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: Code\Packaging\SPARQL_Studio_Package\SPARQL_Studio_Package.wapproj  # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
