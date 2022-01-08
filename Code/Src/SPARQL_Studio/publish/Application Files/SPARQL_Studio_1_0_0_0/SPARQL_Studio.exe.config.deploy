@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <configSections>
         <section name="endpointConfiguration" type="dk.ModularSystems.Sparql.Settings.EndpointConfigurationSettings,SPARQL_Studio.Settings"></section>
@@ -10,10 +10,9 @@
 
     <endpointConfiguration>
         <endpoints>
-            <endpoint name="DbPedia" uri="http://dbpedia.org/sparql" description="DbPedia is a structured version of the Wikipedia" shortList="true" />
-            <endpoint name="WikiData" uri="https://query.wikidata.org/bigdata/namespace/wdq/sparql" description="Wikidata acts as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wikisource, and others." shortList="true" />
-            <endpoint name="Sparql.org" uri="http://www.sparql.org/sparql" description="Generic SPARQL endpoint at sparql.org" shortList="true" />
-            <endpoint name="DbPedia Live" uri="http://dbpedia-live.openlinksw.com/sparql/" description="DbPedia Live contains less polished but more current data than DbPedia" shortList="true" />
+            <endpoint name="DbPedia" uri="http://dbpedia.org/sparql" description="DbPedia is a structured version of the Wikipedia" shortList="true"/>
+            <endpoint name="Sparql.org" uri="http://www.sparql.org/sparql" description="Generic SPARQL endpoint at sparql.org" shortList="true"/>
+            <endpoint name="DbPedia Live" uri="http://dbpedia-live.openlinksw.com/sparql/" description="DbPedia Live contains less polished but more current data than DbPedia" shortList="true"/>
         </endpoints>
     </endpointConfiguration>
 
@@ -27,19 +26,6 @@
             <namespace name="foaf" uri="http://xmlns.com/foaf/0.1/" schemaPath="Ontologies/foaf.rdf.xml" description="Friend Of A Frien (FOAF) formal vocabulary description" autoPrefix="true" autoComplete="true"/>
             <namespace name="owl" uri="http://www.w3.org/2002/07/owl#" schemaPath="Ontologies/owl.ttl" description="The OWL 2 Schema vocabulary" autoPrefix="true" autoComplete="true"/>
             <namespace name="skos" uri="http://www.w3.org/2004/02/skos/core#" schemaPath="Ontologies/skos.rdf.xml" description="An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, etc." autoPrefix="true" autoComplete="true"/>
-            <namespace name="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaPath="Ontologies/rdf.rdf.xml" description="The RDF Schema vocabulary" autoPrefix="true" autoComplete="true" />
         </namespaces>
     </namespaceConfiguration>
-  <runtime>
-    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-      <dependentAssembly>
-        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
-        <bindingRedirect oldVersion="0.0.0.0-10.0.0.0" newVersion="10.0.0.0" />
-      </dependentAssembly>
-      <dependentAssembly>
-        <assemblyIdentity name="HtmlAgilityPack" publicKeyToken="bd319b19eaf3b43a" culture="neutral" />
-        <bindingRedirect oldVersion="0.0.0.0-1.4.9.5" newVersion="1.4.9.5" />
-      </dependentAssembly>
-    </assemblyBinding>
-  </runtime>
 </configuration>

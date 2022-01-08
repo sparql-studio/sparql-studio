@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using DigitalRune.Windows.TextEditor.Utilities;
 #if DEBUG
 using System.Diagnostics;
