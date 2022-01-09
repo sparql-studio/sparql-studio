@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR">
+            <Component Id="cmp29E30D4BB3602EFA127FBC2979B0D711" Guid="{E7B6FC3C-431B-4C05-AAB9-23F8258B26C9}">
+                <File Id="filF339126CA7534B68CB4ECA16838E7AA8" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.BrowserSubprocess.Core.dll" />
+            </Component>
+            <Component Id="cmp73510FF3A0AADF26374255E854FCA91B" Guid="{12B7B2DD-96F2-43D4-B5BB-D16702931EF6}">
+                <File Id="fil13DB8D8F9C54DD33E8347CDF11FCAB6E" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.BrowserSubprocess.Core.pdb" />
+            </Component>
+            <Component Id="cmp99E7D28282752E89C43774CC6C209A9D" Guid="{D36FC7C8-9292-4D7C-B097-6F0D9D325C5D}">
+                <File Id="filDA28AE3EB141715223C6B1428E018C1F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.BrowserSubprocess.exe" />
+            </Component>
+            <Component Id="cmpA79DE2B438AC2E8EE14FCB7A0328489F" Guid="{22262103-A441-4668-8F78-27D2854AC7BF}">
+                <File Id="fil9575110B7F1BECFA1C185628E29A5880" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.BrowserSubprocess.pdb" />
+            </Component>
+            <Component Id="cmp90A2E8CB33B762E5EAC90BA07C08B11E" Guid="{3DC1ACB4-67D7-42A2-AEE2-5EB50CE9CE7F}">
+                <File Id="filA7D45C9E4256B3358C34553C935942B4" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.dll" />
+            </Component>
+            <Component Id="cmp216A2905BBACCF90D42EDCF98E1E3987" Guid="{D2E4B9B3-CA9C-4F11-A1E2-CD2799E73957}">
+                <File Id="fil934055EAB857344B33BDD1627FE390F7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.pdb" />
+            </Component>
+            <Component Id="cmp1775772858A785E5C21E053634F5B1EB" Guid="{9ED036E4-EC33-4989-99DA-D904CF125D92}">
+                <File Id="fil577FF7A0B00B75D7E835B3B7497C02FF" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.Runtime.dll" />
+            </Component>
+            <Component Id="cmpF1BB2E3F0E3A2AF69168EDD0068402C4" Guid="{948675BA-0898-4D4C-A777-6740D4BDF400}">
+                <File Id="filB12BC9D6B0C551E72E40F7AB45BE0250" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.Runtime.pdb" />
+            </Component>
+            <Component Id="cmpCEAAA8CEF003102724EDFF16D64385BA" Guid="{84A89E7E-E7F0-4C94-8482-D3F2537F436C}">
+                <File Id="fil741F5BD9F57BF6CC35023D43CAB94642" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.Runtime.xml" />
+            </Component>
+            <Component Id="cmpACCAA1AE08B4F0FE1D04EE4DCCE3C895" Guid="{FAF6B4E2-378A-4EE5-A92D-3FB839EE705B}">
+                <File Id="fil7D58F3CEC4173F729153C530E059F2F9" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.Core.xml" />
+            </Component>
+            <Component Id="cmp590590625DF439F24B8748346C4F947F" Guid="{17A52283-D046-4E73-8304-CB4EDB9448AF}">
+                <File Id="fil7FC0DFC6BC88E4E58DB03A22A09BB77D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.dll" />
+            </Component>
+            <Component Id="cmp75251D606EED5819B1290D403A1CC1B2" Guid="{A5FA626F-C091-4090-A556-7273FCAE4634}">
+                <File Id="fil47C3C952A0C5ED43421B12C892ADB70A" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.pdb" />
+            </Component>
+            <Component Id="cmpA41C6EE7A653A952E331B00092610B1D" Guid="{2EF69F59-842F-484B-8C6C-EDFEC0261A1D}">
+                <File Id="fil65AC6BC6EE24BD8FC1F18F1B380974D8" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.WinForms.dll" />
+            </Component>
+            <Component Id="cmpC7970CF06BC5973A655CA54A9B6CCBC6" Guid="{91DF21A0-4F0E-462B-BFD4-A13C3704DDD3}">
+                <File Id="fil0F10FDF94BA38883FDC88AB69CA05C3D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.WinForms.pdb" />
+            </Component>
+            <Component Id="cmp7F5C8BF4AB28A6AC4D370E5ED16BC8CA" Guid="{4EBB71EB-06EE-42F1-98EC-3DA02A832C99}">
+                <File Id="filEFFF459686E34C3E074089B7D6E1683A" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.WinForms.xml" />
+            </Component>
+            <Component Id="cmp66ACB19E7A13308F5905BA38A8AF393C" Guid="{27155A05-BA24-4EA5-B306-6598F02EF415}">
+                <File Id="filF61D71F7AEDA25975366F8E8C8DF2C6D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\CefSharp.xml" />
+            </Component>
+            <Component Id="cmp5BBEF2BB3E27B626D57407BE10B3FFD8" Guid="{539C4F78-A94D-4BF3-BFBC-3DD789F00F9A}">
+                <File Id="filF61C9C093697C490D95A36FC693EEBF3" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\chrome_100_percent.pak" />
+            </Component>
+            <Component Id="cmp14812F1FC6C083E47F25A1033CD085A5" Guid="{5E75C0FD-E245-4913-BC3A-3384962A67B1}">
+                <File Id="fil8FC8E3538744AFE5989880C724915EBA" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\chrome_200_percent.pak" />
+            </Component>
+            <Component Id="cmp671AE9B5018B21C55B0BA6C98FA38DF0" Guid="{03FDC160-A3F6-4262-A253-12AC130BB5D5}">
+                <File Id="filB2F1D5CF803E4A00F1446547BBF85A23" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\chrome_elf.dll" />
+            </Component>
+            <Component Id="cmp593B47C5A296958937B4699BB126000F" Guid="{F645156A-F862-40A4-A5C8-B640E8EA871E}">
+                <File Id="fil74C30EBEB08AD69984405E221438C865" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\d3dcompiler_47.dll" />
+            </Component>
+            <Component Id="cmp8F831E6B3AFD94EE2834BBA61A7E1E8E" Guid="{AB9F427C-25BC-4710-913B-3879DAD1E268}">
+                <File Id="filD490978B0FA87AFBFC76FFEEA7125F82" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\debug.log" />
+            </Component>
+            <Component Id="cmpA2013D0A0314254045687AD993E53AF0" Guid="{D167CF28-BA4F-409D-8AFA-E79C67DE0FA8}">
+                <File Id="fil7E114F02F9C0E5A80B41E6039EDD1620" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\DigitalRune.Windows.TextEditor.dll" />
+            </Component>
+            <Component Id="cmpFCBE6BC77C7F92D75F0CE8E368CC3E4B" Guid="{F78704A3-0866-4525-9C49-F08D6C2EEFBC}">
+                <File Id="filD5AE2B4DAB5F4D67E8AF781E3D67E645" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\DigitalRune.Windows.TextEditor.pdb" />
+            </Component>
+            <Component Id="cmp1385AEF0D53A7C65B9994AABC145CDF9" Guid="{5F72C500-156F-462D-9DA5-18E06992C386}">
+                <File Id="filBA5CC92761D8804C1446E1FED0A48506" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\DigitalRune.Windows.TextEditor.xml" />
+            </Component>
+            <Component Id="cmp499BB1787CF01BF919D7179ADE8270B5" Guid="{A43A6A34-77A0-4E80-BFBC-AC715BE2BDF4}">
+                <File Id="filBA16877C184226973F79E0BE6D824BF7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\dotNetRDF.dll" />
+            </Component>
+            <Component Id="cmp33080E443B97CCC7C57777D2AE2BE4CB" Guid="{A38A8A18-3C12-41D4-B1C0-83576DF467FB}">
+                <File Id="filA0B5D098D7D3ADF32E43383219CE1C19" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\dotNetRDF.xml" />
+            </Component>
+            <Component Id="cmp3A7FE66590B965AA564111D06419262A" Guid="{02FA8049-81F5-4EFD-8CCB-F69DCCDB6EA2}">
+                <File Id="fil3265A25C80C43F457B6B0121C3889E90" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\HtmlAgilityPack.dll" />
+            </Component>
+            <Component Id="cmp23FF98671AE2E0308F9E97AA4E145B04" Guid="{B57FEF35-A696-4223-B644-B3C36DFE43BD}">
+                <File Id="filF652CDE270A1510610B18674A2F37B8C" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\HtmlAgilityPack.pdb" />
+            </Component>
+            <Component Id="cmp656BEA6A18720172B52FC49DEC669933" Guid="{F6DAB087-F945-4F25-A6B9-ED8F3AB27D52}">
+                <File Id="filE4EF8302F6C8E9EB73C46AB01920FDDB" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\HtmlAgilityPack.xml" />
+            </Component>
+            <Component Id="cmp2CB181F06249C39F4FEB29A2086FF619" Guid="{7132E69A-2F2A-4FFC-BAF0-5245F90983A8}">
+                <File Id="fil623D04A95B27EA6BC5EEE006250395BB" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\icudtl.dat" />
+            </Component>
+            <Component Id="cmpBB0C7B993C9AF0704B701083AB25A9E6" Guid="{8A931C28-DB67-4257-AB9F-5F10A3264AFC}">
+                <File Id="fil680C3F803F7453BD76FB62858767E327" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\libcef.dll" />
+            </Component>
+            <Component Id="cmp5DDCF0CE56D406D1B8B1F93E988AED6B" Guid="{25F739CA-0460-4F04-9109-C717400C1EC5}">
+                <File Id="fil0F4CD3729AF07C1C460E292E0F081D0A" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\libEGL.dll" />
+            </Component>
+            <Component Id="cmpB0CFEB9FF932521D6A75B6BE6F8D644F" Guid="{15245373-3B0D-48B9-A683-B8DDC79CF17D}">
+                <File Id="fil736048FE57EC840EA5DCE88625C38E8D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\libGLESv2.dll" />
+            </Component>
+            <Component Id="cmp21892602E8EED841FC9D3096BEADD77E" Guid="{4B3FEF01-9EF9-4962-A292-50784F812180}">
+                <File Id="fil2B59D656AC231A68E91DB21E172C6A3F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\license.txt" />
+            </Component>
+            <Component Id="cmp1874AB219070404EED322213C6A1A49E" Guid="{1EEE2443-7FE5-489E-B6A9-FC6D87AE4B79}">
+                <File Id="fil05FF769999D602AD4FA6A489C44ED290" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp03F5503D497D187BDDF7D932D5BD55E9" Guid="{13F27DD0-F909-4D6C-B403-C83DDA8C4B4E}">
+                <File Id="fil094941A1CF7BE1998B69C59AF0F5D834" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Newtonsoft.Json.xml" />
+            </Component>
+            <Component Id="cmp511D854943073DD3DA8575A71196A5EE" Guid="{4EC84EC2-4E50-4439-ACCA-9E907277D51C}">
+                <File Id="fil8D5A1236A9E770B1EF106476CD09A414" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\OntologyParser.dll" />
+            </Component>
+            <Component Id="cmp8517FABE3594244641D65AD7ECC3B509" Guid="{345BF58B-CE5F-47C8-83A9-7BAF6A672B7C}">
+                <File Id="fil85DA59C817DE0FAF39546252997C2D65" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\OntologyParser.dll.config" />
+            </Component>
+            <Component Id="cmpCB40FE769240A7D7589B482988492A3A" Guid="{0076F266-EB02-470C-9FAE-B6C08F9BCC51}">
+                <File Id="fil71C1A682BDA1D97BB6405758A3F186F7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\OntologyParser.pdb" />
+            </Component>
+            <Component Id="cmp9F1F760351DF98E43961684D66E51E03" Guid="{0FF71CF4-7BA5-4537-BC38-F55F78163933}">
+                <File Id="filC5069BEF030929B7F7AEB7898F21BE12" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\README.txt" />
+            </Component>
+            <Component Id="cmp6EFFB8248868D3F243716E8539FD7A70" Guid="{B5FC267C-1162-426A-A4BE-21B8A5976E78}">
+                <File Id="filABD65DF44EF42D360908888B7B437CF0" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\resources.pak" />
+            </Component>
+            <Component Id="cmp939A03A1D5316FD7464E1211355E0BBF" Guid="{9393E4F3-9BD4-4CF2-8758-7D571D99C3E2}">
+                <File Id="filB1E02FD4DF2AD830151686A1B0813A3B" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\snapshot_blob.bin" />
+            </Component>
+            <Component Id="cmpAB32CA8C50C588956CA156049DBC8DC3" Guid="{326CC871-5DD3-471B-8038-EA042D717267}">
+                <File Id="fil1D9CD6A1387B306C30A74DA90BDD970B" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.application" />
+            </Component>
+            <Component Id="cmp5BAF12410FE2BAC62BCC840C517FE19B" Guid="{1683E225-9D6B-4537-9FA7-0175F6068DC3}">
+                <File Id="fil054B10BF302EA0C0413BE60322512910" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.Contracts.dll" />
+            </Component>
+            <Component Id="cmp5A54DC228F2CE9A8FCB80D6234B49F87" Guid="{04DDC195-C0E1-450B-A16B-DD8555A7D711}">
+                <File Id="fil32FE6A6C2F3B8B6CEDC0F43C277456C5" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.Contracts.dll.config" />
+            </Component>
+            <Component Id="cmpFC06DC69494DC2D8B76C3789C0B93647" Guid="{D10F9DFA-8CB0-416E-9259-A0B7F180466B}">
+                <File Id="fil335A31B1085571AD6B8A26F67AF54C11" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.Contracts.pdb" />
+            </Component>
+            <Component Id="cmp398CDE1614CFBC9BA203F92B2D8585C1" Guid="{4B5C52D3-6FCB-484F-AB3E-C1F0BCD080CA}">
+                <File Id="filA0BEF8210E024A803C93B4278027E2A7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.exe.config" />
+            </Component>
+            <Component Id="cmpFE4AEC73C768C61A2C0300832EBAFA72" Guid="{289CC553-0DBA-4B36-899F-AEABBE849689}">
+                <File Id="fil2A4BA85F11775988086E8744DD9E3D13" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.exe.manifest" />
+            </Component>
+            <Component Id="cmp9246E3737C7DE8717D439AFED823F90D" Guid="{CBCB2AE4-6014-4042-A5E2-BD3625177973}">
+                <File Id="fil8CE38E4682684D8B1895B3186AAD8C7D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.pdb" />
+            </Component>
+            <Component Id="cmpFB830D1BEF10CB449B01CB6D09E5E8C8" Guid="{3847D0E8-2592-489B-8AB8-B5D91AE8C2FB}">
+                <File Id="fil73042B6A6613BF5F2DD2F33C52B77623" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.Settings.dll" />
+            </Component>
+            <Component Id="cmp71FD3D668E9A0FED659D531091E8F80F" Guid="{87D5B507-020D-4B1C-BEE5-275A9CAB9662}">
+                <File Id="fil9ADA07F49D04F8076D4589C108983D87" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SPARQL_Studio.Settings.pdb" />
+            </Component>
+            <Component Id="cmp49FC78DB761A2F02451F964C668157F9" Guid="{6BD65D21-97C4-4F8A-A824-273D9768AE88}">
+                <File Id="fil0EFD83D2C2D8006AEF99691655F71A34" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\v8_context_snapshot.bin" />
+            </Component>
+            <Component Id="cmp51A64D8BE970AF502AD88D3769EE167C" Guid="{83169372-5173-43C8-801D-CFE146A7BDD5}">
+                <File Id="fil89159EE95B7EAE0E6577579A58B073A8" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\VDS.Common.dll" />
+            </Component>
+            <Component Id="cmpDCCFF5581B0169947DD28AE42006673E" Guid="{42D9B6AA-D157-427B-BE47-10C2D6220B39}">
+                <File Id="filFA1B130771CEED983AC5853B355866C4" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\VDS.Common.pdb" />
+            </Component>
+            <Component Id="cmp115EBE51A04263528F8E8128A657C557" Guid="{F4F87511-046C-450C-BE54-19688ABB802A}">
+                <File Id="fil196AD9107CE2F4DE6269C0A55AA8077E" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\VDS.Common.xml" />
+            </Component>
+            <Component Id="cmpF93B8D606C35D22837A07B0F42131B4B" Guid="{50254E95-1AB1-4435-8A60-CD5F430AA4EC}">
+                <File Id="filD2FCF8E3A6CA5FFAD853804AC55447C9" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\vk_swiftshader.dll" />
+            </Component>
+            <Component Id="cmp0F4FA52A814089F3984C2B63EF5D9780" Guid="{88EF935B-6CC4-4B2E-B0AD-3DB2698B75B1}">
+                <File Id="filA93DC86E9428F3E2F316767A7698F775" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\vk_swiftshader_icd.json" />
+            </Component>
+            <Component Id="cmpCEDF9F382DAFA88A4D45035281A963F1" Guid="{B9DDA0AA-EF00-43E4-B33D-DE789921FBAA}">
+                <File Id="fil9AAF168E494292700A68BAEE79E76F34" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\vulkan-1.dll" />
+            </Component>
+            <Component Id="cmpF64D60E2A7A50FD6241ABDBE27E31F59" Guid="{CB54C180-4D63-417E-B408-A21378B3E9E5}">
+                <File Id="filED0391668232DF3DEA5823C1D36F49AD" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\WeifenLuo.WinFormsUI.Docking.dll" />
+            </Component>
+            <Component Id="cmp40129634DAACB8625D06428F5E618FE6" Guid="{90DC9A94-88F5-4346-972F-78039D32BD42}">
+                <File Id="fil0C21162CDD3B39A12246A512476BB478" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\WeifenLuo.WinFormsUI.Docking.pdb" />
+            </Component>
+            <Directory Id="dir5A10D01FB847007B5517A50CB592C011" Name="app.publish">
+                <Component Id="cmp9E66E5F8DD94DBBA7D7C34AED2F3438C" Guid="{F0E85D52-35D3-4A82-AD7A-9FE01760DFCB}">
+                    <File Id="fil110367B7CADEDE97CFB65FC2B94D46B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\app.publish\SPARQL_Studio.exe" />
+                </Component>
+            </Directory>
+            <Directory Id="dir93A3F958D6017921CA73A07A09454823" Name="GPUCache">
+                <Component Id="cmp3D1FC6C83B6BC2E4924BC4123DD897BC" Guid="{3ED90133-C4D6-4DA3-A811-CDEA11F68119}">
+                    <File Id="fil7862B75C1158DE493B561DE3C0BFFE43" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_0" />
+                </Component>
+                <Component Id="cmpDF28353F829A06CCCE4E94853A988CE0" Guid="{65B174CB-6930-4583-BF7E-8F82D813C14E}">
+                    <File Id="fil8C851ECFD71B2BCC64E6E95E590418B6" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_1" />
+                </Component>
+                <Component Id="cmp1395E43CD6D50AE0C19F5E8AAE9BFC3B" Guid="{91A24C75-9BBB-4BC0-9702-71C0F3ADC6CF}">
+                    <File Id="fil0C3A6A84C7A0ECA15017EE256EF09583" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_2" />
+                </Component>
+                <Component Id="cmp8651FCCED1A2C602092BE43948CCA15F" Guid="{6BE28BEA-54FF-46A6-B5C9-E4D30AE39FA4}">
+                    <File Id="fil5D30CE4A800664305957B3437BBD1D7D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_3" />
+                </Component>
+                <Component Id="cmp069C3A9541B7FEC8A61DD9DF89ED25B9" Guid="{9721B2C1-3074-4878-B94F-3C96857A40DB}">
+                    <File Id="fil09C6FC88FD899C3AAEB79755AD3AB6C1" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\index" />
+                </Component>
+            </Directory>
+            <Directory Id="dirC2A25BD972A0CE6CA0E5449830E3199D" Name="locales">
+                <Component Id="cmp1B8D75B534A12D2AA6C9E85C27F3B5C2" Guid="{DA8C6EA6-E5BD-4F3C-8276-A75B958A614B}">
+                    <File Id="filF343E04CB45CA330FD7D03555BDFD8B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\am.pak" />
+                </Component>
+                <Component Id="cmpBB6D00A53492D2D7EC0B6B36E3AB08F5" Guid="{AA5D7C84-DBEA-4371-8EDA-217E5C5DC424}">
+                    <File Id="filDE3FC993376D25F96B23796794D744BE" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ar.pak" />
+                </Component>
+                <Component Id="cmpEA32BD79171C0E467B1B41A6ED829617" Guid="{D07AD54A-69D1-4A06-8F83-2A6750C1E9B9}">
+                    <File Id="filE35F3B69C0E565904E485252698E8BDB" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\bg.pak" />
+                </Component>
+                <Component Id="cmp020F19ACA82CDE060286E97432195433" Guid="{E3DFB2AE-0586-483C-B0D5-9B9F7816CBF9}">
+                    <File Id="fil58B8FB84D4B4D8B5DA9B4E9FC8B00880" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\bn.pak" />
+                </Component>
+                <Component Id="cmpC71556D9728D691E3D08ABA913EDCD2C" Guid="{085ADA2C-C989-4D70-8462-192B821D5C03}">
+                    <File Id="fil47A683CF870D8CFA150AEA5361466149" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ca.pak" />
+                </Component>
+                <Component Id="cmpD0AA0E33E1F40A545486CE27D7698130" Guid="{25D78955-614A-4162-B56B-0F94C4B944E7}">
+                    <File Id="filB9E18B02618EA00AE7FD30E20490AB09" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\cs.pak" />
+                </Component>
+                <Component Id="cmpB22E793AB0E064B0398F5217D4C10F5A" Guid="{5061BCCA-E361-4B67-8BE5-753032885A99}">
+                    <File Id="filA2F19C6299827DCCBF5D25C7870B9B54" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\da.pak" />
+                </Component>
+                <Component Id="cmpEB8BD998A6C12CE1E9332A904D235ED2" Guid="{BB6DDD82-B3BF-473A-8CAF-15B6E067780B}">
+                    <File Id="filFF073A4D64A7C9EFBDCCB0E4B84CCB13" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\de.pak" />
+                </Component>
+                <Component Id="cmp550863411F30BD7462E7F357A74D43D5" Guid="{BDC8B235-E55B-4D18-B772-BB77F95F57F8}">
+                    <File Id="fil228B40ECB6CF0E6CA098118269A87849" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\el.pak" />
+                </Component>
+                <Component Id="cmp391159C0D65CA97E508275A365F667AF" Guid="{403844FA-55AB-4ECF-888E-D792431ED7A7}">
+                    <File Id="fil9B8DDA86CA2809848F160AF87E6639C7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\en-GB.pak" />
+                </Component>
+                <Component Id="cmp5C7429CF0CCA0A2F988DC61A5E0A4783" Guid="{434808B1-5D6D-4915-B268-362BD797ECE3}">
+                    <File Id="fil49A7F348F1C08F04196EBE24B20D9BA1" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\en-US.pak" />
+                </Component>
+                <Component Id="cmpEFEB2D4955561AB4E4542C15A89B5B32" Guid="{4E8627D0-7FDA-46A1-94AF-CC42DF564079}">
+                    <File Id="filCAF3974878861512E4795EF326530993" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\es-419.pak" />
+                </Component>
+                <Component Id="cmp8A30F2A960D0FC26E07CB603BDE5D345" Guid="{771847D3-4A2F-4906-8D25-2732EBC71FA4}">
+                    <File Id="fil1E3510FC28A149E3C3E9AAA2C619E6C5" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\es.pak" />
+                </Component>
+                <Component Id="cmp1B22BFA7AF06A4836157E0D6A2AC7C81" Guid="{E35D3407-9EE0-4F3F-B6D1-5FE54A67E475}">
+                    <File Id="fil4D5EB530E2E60DC15E4ECE5B52535A3B" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\et.pak" />
+                </Component>
+                <Component Id="cmpC694CE163C0416F7F5C1A6405FA86B11" Guid="{7E631E71-F8E2-4F7E-B68B-F497C611203C}">
+                    <File Id="fil997560129DB0FE8CC434DB1387DA5D40" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\fa.pak" />
+                </Component>
+                <Component Id="cmp026B44CD93B5AE3CDA96A9B7B7DE1D95" Guid="{5418501B-80C3-49EC-9150-0DFCA0980E1B}">
+                    <File Id="fil5EF49BDEFD29DF61E2C3E40DDC810EDD" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\fi.pak" />
+                </Component>
+                <Component Id="cmp0C58F15D67050C8292C764631B322654" Guid="{A7DBBB4D-04BF-4018-9104-D74AC3CCB575}">
+                    <File Id="filC38CE060BBA51B81F31C59949E04B4A0" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\fil.pak" />
+                </Component>
+                <Component Id="cmp6A168A6D0BF60F488492D2016FDD3D7D" Guid="{AB7AFEEC-D2B7-44FA-BFAE-131659E4FB67}">
+                    <File Id="fil5BC185ABBC27545F6A24D845293883AF" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\fr.pak" />
+                </Component>
+                <Component Id="cmpADF73400C2A118A3E1C34AA56DE00083" Guid="{B7BC63FA-9A80-4BF9-93EA-F8E3E824E712}">
+                    <File Id="fil6A6A5934C431308D2AB583922879B032" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\gu.pak" />
+                </Component>
+                <Component Id="cmpFA012C378D6346D9B8D1674115960BDE" Guid="{25D824CC-DAE8-48D0-ACAF-2A726F96595E}">
+                    <File Id="filAF5E0219CD5830F47E17088519B7EF6F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\he.pak" />
+                </Component>
+                <Component Id="cmpFE10BFF4AC9D3263C68A7AD34D1001A6" Guid="{06635E86-46D8-4EE3-A56D-7B3485C53C15}">
+                    <File Id="fil3465DA871C2CF1F905D46BB550EAD4CC" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\hi.pak" />
+                </Component>
+                <Component Id="cmp933D76729090587A7B65283C73A4CEC9" Guid="{2AAB802A-407F-4501-847E-95513FBB1AA5}">
+                    <File Id="filC2DC474743A301BBB7689A3DEEF163AE" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\hr.pak" />
+                </Component>
+                <Component Id="cmp9C3DE6F48B6EAC5F51BC8209E5C30EDF" Guid="{857C1D9D-5A8B-4F09-B771-3610D81FBC3E}">
+                    <File Id="filB4271D6A03E1CB150DF95325E79FC4A0" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\hu.pak" />
+                </Component>
+                <Component Id="cmp64584C3B02B6A78B0EF3245A0FEFE473" Guid="{87C900A3-36C2-409C-BB8B-2244427F29E4}">
+                    <File Id="fil6EF363AE6120991043D49AE2844666D3" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\id.pak" />
+                </Component>
+                <Component Id="cmp08B98333F544EE1A481F253A67796F06" Guid="{9969F7B4-4F4B-42F6-B0EE-4D03F42E82A9}">
+                    <File Id="filE562159C88EB5418CB36C79525398005" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\it.pak" />
+                </Component>
+                <Component Id="cmp374E425681E78F9574A574FF71722428" Guid="{A41D012F-F498-4046-9CDC-9FE71CF06152}">
+                    <File Id="filB29A320625BFFBC445D786B529FE2FEB" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ja.pak" />
+                </Component>
+                <Component Id="cmpE80A12ECA9E8037BAC5EDC7DABDBE411" Guid="{78817C87-B63C-4A3C-9CF6-48751E8B6447}">
+                    <File Id="fil04B483DDD18A0981F34920DB4BC8959D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\kn.pak" />
+                </Component>
+                <Component Id="cmpF81B13AB32BBE1429E867254320367B1" Guid="{C98B7D33-A7BF-4456-8F06-FFF712A36F48}">
+                    <File Id="fil49B54C7FAC6967083E8DAB43D3B26460" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ko.pak" />
+                </Component>
+                <Component Id="cmp169A981B444EF17964A9E5E6CF1FFCE7" Guid="{445ECEC1-B4ED-4657-A320-5578BEFB2CD2}">
+                    <File Id="filE0571C92BE18C63BDA76557C1E7E0BA7" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\lt.pak" />
+                </Component>
+                <Component Id="cmp2C14D6A8D2148B82E9AA3C4B5A9244D6" Guid="{F4F88CFC-B9D2-4900-873F-5C57D7D076FD}">
+                    <File Id="fil09E251C30EC1AF141196A0ED430FB866" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\lv.pak" />
+                </Component>
+                <Component Id="cmp6EA5236A0E09048C953E34307AA83761" Guid="{35439317-47B7-4AD7-84A4-10490B25F62A}">
+                    <File Id="filD6F0237F09293544CA2A4480FAB0370F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ml.pak" />
+                </Component>
+                <Component Id="cmp65EBAF7CC5F7D6C01175E18F16BB8A6F" Guid="{72687F46-A931-4B90-8020-D1DE5A06A6B9}">
+                    <File Id="fil1A2C7B35CD12A5389F7AFD36EA6B45C6" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\mr.pak" />
+                </Component>
+                <Component Id="cmp56F6FDE624A39544ED4A19CD31ABE113" Guid="{05E8CA16-4BC2-45D9-B001-E41384904635}">
+                    <File Id="filE90DC5C45B9D23432E63E911625D1D73" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ms.pak" />
+                </Component>
+                <Component Id="cmp7ADF0E1B35AFEAA2C3E648D100D1DCCB" Guid="{CE16FC3F-BCAE-414A-BF7F-E72BC8B0F1BC}">
+                    <File Id="fil690FDFC707303410F541C38361BE07E3" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\nb.pak" />
+                </Component>
+                <Component Id="cmp026C6682D94A491BF5EE6829763CA73F" Guid="{3499F6ED-EB26-4907-A68C-A2C7167AC56D}">
+                    <File Id="filBCAFFD4E8DE438C86DC10C97C166280F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\nl.pak" />
+                </Component>
+                <Component Id="cmpEB784F92D865A14E6D69202B8E3000C3" Guid="{DDB6DB7B-E1D6-4364-AAE4-35F2BD7740B7}">
+                    <File Id="fil71BCF18F4FAD66EE2441A727CF5670E0" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\pl.pak" />
+                </Component>
+                <Component Id="cmpD16912F468142E2A974DF5DB5C5E1BAD" Guid="{0078C5B0-4F95-4381-8104-BEF01BC01041}">
+                    <File Id="filAA298FEEEBA1E1141115BE8F6988E3CA" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\pt-BR.pak" />
+                </Component>
+                <Component Id="cmpA0BFD8C06ABD9C38B370E7DAAA5D1166" Guid="{384B54E8-0ADB-45CC-BE38-55BB1951A68B}">
+                    <File Id="filDB176878BCE0968B453C1102700588F2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\pt-PT.pak" />
+                </Component>
+                <Component Id="cmp7F020F42A1C1B0119421ED3973E5B9BB" Guid="{D554AEAC-09CE-42A0-A58D-58D9D371B542}">
+                    <File Id="fil7BBF90423B25BCA69BF3E380C3CD7B20" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ro.pak" />
+                </Component>
+                <Component Id="cmp4769864D0832FADFD6FB24F87930D34F" Guid="{8FE38092-279B-44B7-ACCD-11D96D8D5CB0}">
+                    <File Id="filA2B65D6AD01446A1E29666C6E397BA3E" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ru.pak" />
+                </Component>
+                <Component Id="cmp211D3724749C3952BEFEF8DF3C3973BF" Guid="{66723A45-59CD-4EE9-B3CC-01829C458C2D}">
+                    <File Id="fil26063910F5FB1FCE84B3E49E756B2AEA" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\sk.pak" />
+                </Component>
+                <Component Id="cmp28A18F57A1C7957CEB6226C2DD211242" Guid="{095725C0-A1BC-4880-A551-045CC1344003}">
+                    <File Id="fil83934B51C9563E2FC1971F37CA1BEB22" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\sl.pak" />
+                </Component>
+                <Component Id="cmpE3B560558F7AE351423D23AFFA82483E" Guid="{76225695-C75D-4438-8F12-AA1A77854550}">
+                    <File Id="fil43F61AC3E1BD5E1FC6449AEF931BE3EF" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\sr.pak" />
+                </Component>
+                <Component Id="cmp0BC848D31607A27744FD7422A0A63A7E" Guid="{8F4C683D-F950-4829-8E7E-286D509CCC50}">
+                    <File Id="fil9A557436F2D211CD509F7B083FA9FE8B" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\sv.pak" />
+                </Component>
+                <Component Id="cmp2186B99000AFCD0A6038DA24C9788347" Guid="{533239EB-ECF7-4922-ACB7-0615F142ECF9}">
+                    <File Id="fil017548B91D8710640BE5E9FE1412A41C" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\sw.pak" />
+                </Component>
+                <Component Id="cmpEBFB7AC0FCF52B4833754399A1CF9C44" Guid="{E4498589-D2EA-41B0-B7C9-0BED8F9847A2}">
+                    <File Id="filB38C2F4C5E11FD94F075D2BED5303BE8" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\ta.pak" />
+                </Component>
+                <Component Id="cmp7B33FBE076E56915F3C698382FDF793C" Guid="{201D2EEC-D5C6-4709-BD59-174C6C396F49}">
+                    <File Id="fil640FCE87BD8ADEF98EBF2A698F702266" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\te.pak" />
+                </Component>
+                <Component Id="cmp3CA3E1B1FF67221DFC354D21667D5C91" Guid="{39FAC01A-E94F-4C05-975F-BE826E8B8F14}">
+                    <File Id="fil6BEBF1BDD6563937FFF31F916C31D834" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\th.pak" />
+                </Component>
+                <Component Id="cmpB4108B3D6523A91005441A7A73781654" Guid="{8EC6E7D8-DAB2-4A7C-9F7F-6465E3E82AF7}">
+                    <File Id="fil39B104B14FD80385387C1538109F5908" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\tr.pak" />
+                </Component>
+                <Component Id="cmp05106526A9BFC99BE5BF039B8999D5D0" Guid="{929C1730-1997-4D7A-8BDD-A89ADA26220F}">
+                    <File Id="fil3E415DCAB1A1A947D0A68DDA5F38F771" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\uk.pak" />
+                </Component>
+                <Component Id="cmp2A9B03FA25F11A3521F78E1E12F00770" Guid="{2FB0E80F-4752-4650-A2BD-0C357A64D2FC}">
+                    <File Id="filC721AEC7FB3AF88EB038061D61629DA0" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\vi.pak" />
+                </Component>
+                <Component Id="cmpB503073AA24AA6FC76850BF10C31CF59" Guid="{DDE469CD-58BC-4520-AB36-DD3C9708EF2D}">
+                    <File Id="filF866C06FC6833FDE2869E1F3FC79DE50" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\zh-CN.pak" />
+                </Component>
+                <Component Id="cmp2E186059BBAB57B86E85713863FAA015" Guid="{26E1C097-0FE1-496C-8555-BD695C6F0396}">
+                    <File Id="filC7397185A49B5FA0845C93B37FD273B5" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\zh-TW.pak" />
+                </Component>
+            </Directory>
+            <Directory Id="dir76C8E03FCFCA3C8AE3F0246BFE06A815" Name="Ontologies">
+                <Component Id="cmpEED9F28B31E25005439B6EF16C974D1F" Guid="{CAD917A4-9550-485E-B66B-A6B92694C078}">
+                    <File Id="fil3A7292A822C10691622C5CD98B8FF645" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\dbo.rdf.xml" />
+                </Component>
+                <Component Id="cmpE5B8606C26F8B4D1FC300484C7E59EE7" Guid="{98529BE5-B7AD-46DC-A652-1CB3E76FE3F5}">
+                    <File Id="fil77C8AB8CE9AC6FA183E986732E8E8C50" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\dcterms.ttl" />
+                </Component>
+                <Component Id="cmp2313F1BC70D659A7A9FC0D7EE2ACA2CF" Guid="{72FB8703-3A0F-4B93-9A14-5A160CB6922C}">
+                    <File Id="fil68F5020CECE9419B427E9B5D76310F77" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\foaf.rdf.xml" />
+                </Component>
+                <Component Id="cmp9106CD68EFFB3C0C92447584C0937519" Guid="{6307F8F3-CDEE-447F-8F76-86D399ECA5A1}">
+                    <File Id="fil6DE931FD895E8CEB07B207C1CDC4FDCC" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\owl.ttl" />
+                </Component>
+                <Component Id="cmpD13D2274DC3CB211F8B7CA016471267F" Guid="{6A0CD4B1-DFD1-40ED-8E08-97E58EE15B1F}">
+                    <File Id="fil0662F247481A50C5EF7C277EBA138FD5" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\rdf.rdf.xml" />
+                </Component>
+                <Component Id="cmpC3E2176ACD94262A7F5FCA39D712B5A1" Guid="{9BCAF264-1036-46F7-BD72-9D38BC8CD23C}">
+                    <File Id="fil6528D32BEA57D424BA95CA7EF259E165" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\recipe.ttl" />
+                </Component>
+                <Component Id="cmpADDC5953A7E484AC6A5809295254504E" Guid="{1FCB4B57-F288-41CE-B588-4CEEC9BDFBDF}">
+                    <File Id="fil481AEE5646A5E16E8A13481CE62326AE" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Ontologies\skos.rdf.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dir4DCD35B63348E57DF6B9B63803E48B00" Name="SparqlAutoCompletion">
+                <Component Id="cmpEC30F2EBF73991C9A357BA020B30C6B1" Guid="{52AD6ADF-E974-4A4A-A925-2CD95294A6A1}">
+                    <File Id="fil774F246D23DFCB2ED0F64A29C84F63DE" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SparqlAutoCompletion\Keywords.txt" />
+                </Component>
+            </Directory>
+            <Directory Id="dirC03742F27CD2A05C5A4713D7C0E54954" Name="SparqlSyntaxHighlighing">
+                <Component Id="cmpC4133A33201936F83F6C8AACAAF0B5AE" Guid="{588526A2-53FA-4BE5-B0E3-FE5992CF1BD6}">
+                    <File Id="filFD965D14FDB57017D6D39A2012BE8A3A" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SparqlSyntaxHighlighing\Sparql-Mode.xshd" />
+                </Component>
+                <Component Id="cmp70645FB70872AEBC622E3B26777A1E62" Guid="{B1D07F3E-0957-4FA1-86C9-31F2E53B38CA}">
+                    <File Id="fil29DDF2F8934119AA7275A3F64B0D5E69" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\SparqlSyntaxHighlighing\SyntaxMode.xml" />
+                </Component>
+            </Directory>
+            <Directory Id="dirC616523A56556EF3F429B8097FDA009B" Name="swiftshader">
+                <Component Id="cmpFB24D10083F451DC5CF0ECF779FC0B18" Guid="{1A179D84-1976-47C0-8CE2-84E0B2EE5C70}">
+                    <File Id="filE167E3865654784A541ECC91BC55388F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\swiftshader\libEGL.dll" />
+                </Component>
+                <Component Id="cmp8D1A1A9C3EEE14DA7EA72394C6B2A57B" Guid="{C9F091E3-E7E2-421D-B0F0-BEA2F1DA3E47}">
+                    <File Id="fil91EB50E1EE74D192C7A7AD97C7080821" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\swiftshader\libGLESv2.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="dir9D4104C4FF039D542EC89DB848CD5B37" Name="Tutorial">
+                <Component Id="cmp3D853ACE1A3659F5BEC5F46F08D34B0E" Guid="{3B0B2DC0-9945-49F4-9AF8-8FD2A28B88A5}">
+                    <File Id="filFF7B02AC493AAB44380D5C3B899DF491" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\000 - Introduction.sparql" />
+                </Component>
+                <Component Id="cmp682B7C5A34E535E5D40B4CD02F715F7B" Guid="{6DAEE731-563C-40F8-92F0-1986A589A5C7}">
+                    <File Id="fil4B2048B9845C576CD81F38E13B9D8F3B" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\001 - Namespaces and prefixes.sparql" />
+                </Component>
+                <Component Id="cmp3A6C168BB832F63A12C67F7135E97EE8" Guid="{F4314666-883B-4A72-B32F-68C5A0E83764}">
+                    <File Id="fil545E9A0656F0244C60219ADCA29F9789" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\002 - Querying multiple triples.sparql" />
+                </Component>
+                <Component Id="cmp9AA68C785B1B68EC6C1F57A15A054C96" Guid="{62846440-503E-46BA-B9EF-95221501D090}">
+                    <File Id="fil7F5BDADAF8DD48FD00939C95E823EBC1" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\003 - About separators.sparql" />
+                </Component>
+                <Component Id="cmp8CFB40AA2A3AC743C33905F84476F868" Guid="{EEB33586-592C-4738-AF6F-99499024D2BB}">
+                    <File Id="fil7D4F16B67541EFEDC64B50F051A48304" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\004 - Limiting results.sparql" />
+                </Component>
+                <Component Id="cmp0422254EC4F10B302D0FA0C487D8DBEA" Guid="{EE82CE9B-196A-4BE0-923A-4E5779E15196}">
+                    <File Id="filB41FB42C0064EB1F06CA84E780F3B0A3" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\005 - Finding out what URIs to use.sparql" />
+                </Component>
+                <Component Id="cmp59E5D557A24804A6A39B2E2DDD1072EB" Guid="{77FFBB18-D661-4407-8CE6-A71BB0F809D8}">
+                    <File Id="filC5C98F391255D0382C9D10B07DC066AB" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\006 - Landlocked countries.sparql" />
+                </Component>
+                <Component Id="cmp12CB1031808CB29843C83589DFB886EB" Guid="{3D673CAA-9F42-4BD8-831E-E77655BF7DE5}">
+                    <File Id="filDD8FAC754DF3016D0B09A11C6FADBF6E" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\007 - My name is Switzerland - and Schweitz, and Suisse, and Svizzera.sparql" />
+                </Component>
+                <Component Id="cmpC0535A5E2E130017DD489122D3F991B0" Guid="{37B51AFD-FD3D-4E7C-9CD0-88628E8BF30D}">
+                    <File Id="fil1391782EFA7F5ECA15100D454F90FA89" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\008 - The FILTER keyword - part 1.sparql" />
+                </Component>
+                <Component Id="cmp3CAAA38C37F6D0C3FD737BC13727C7DF" Guid="{326A16EB-04D5-42F9-B0EF-9973B6D89E0C}">
+                    <File Id="fil3240D43117C50AC50ECF9684FB13A501" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\009 - The FILTER keyword - part 2.sparql" />
+                </Component>
+                <Component Id="cmp0601E55D292BFE9451483F17489ABCA2" Guid="{3A1914FD-BFF0-4778-8562-749F6FA9EEFE}">
+                    <File Id="filD5E3CEBEAAA0DC1012A9EBE69A73E855" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\010 - The FILTER keyword - specifying data types.sparql" />
+                </Component>
+                <Component Id="cmpF147110D2475DC11217645632C33D74D" Guid="{29436A70-7DFB-4996-9E64-6006519004EE}">
+                    <File Id="filA34D629C5B1F7C448D70279A1CCEC3A4" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\011 - Filtering for the presence or absence of a pattern.sparql" />
+                </Component>
+                <Component Id="cmp51F6F8EADDA54DDF2EB3096A15FB9811" Guid="{5955584C-B81A-4CE1-BB95-477D6AADB3B9}">
+                    <File Id="filEB9244FA28BA23306A3F8F3717447927" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\011b- The MINUS keyword.sparql" />
+                </Component>
+                <Component Id="cmp9EB119CE9AB8536AD88C69B75F3CBE00" Guid="{A02299C6-A2FD-489A-8885-E1F77ECCD28F}">
+                    <File Id="filF0E552EC49D66E5FF28C65E0F4DE1E6F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\012 - Inner FILTERs.sparql" />
+                </Component>
+                <Component Id="cmp5ADACA4F3908A176BAE94A5F40061056" Guid="{9ACED3E6-7D41-4157-A64E-A6CC4E21F7E8}">
+                    <File Id="filF9FE50752CA037005195AA608695B62F" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\013 - Including optional values.sparql" />
+                </Component>
+                <Component Id="cmp0AD9AB37AACC4ECB530A6F685A014542" Guid="{6674720C-351E-4F88-9040-0FC04AA63F30}">
+                    <File Id="fil4A3B551C911121D5FAB07A1E7AFFAB62" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\014 - Combining patterns with the UNION keyword.sparql" />
+                </Component>
+                <Component Id="cmp702FCC549E8E12F51EFC21CEA19FB498" Guid="{7D8CA786-74F1-41C9-A860-F8CB3CEFB646}">
+                    <File Id="filE1297604D1F314B215B36A0352CCB789" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\Tutorial\020 - The rdf_type predicate and the a keyword.sparql" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="SparqlStudio.CoreFiles">
+            <ComponentRef Id="cmp29E30D4BB3602EFA127FBC2979B0D711" />
+            <ComponentRef Id="cmp73510FF3A0AADF26374255E854FCA91B" />
+            <ComponentRef Id="cmp99E7D28282752E89C43774CC6C209A9D" />
+            <ComponentRef Id="cmpA79DE2B438AC2E8EE14FCB7A0328489F" />
+            <ComponentRef Id="cmp90A2E8CB33B762E5EAC90BA07C08B11E" />
+            <ComponentRef Id="cmp216A2905BBACCF90D42EDCF98E1E3987" />
+            <ComponentRef Id="cmp1775772858A785E5C21E053634F5B1EB" />
+            <ComponentRef Id="cmpF1BB2E3F0E3A2AF69168EDD0068402C4" />
+            <ComponentRef Id="cmpCEAAA8CEF003102724EDFF16D64385BA" />
+            <ComponentRef Id="cmpACCAA1AE08B4F0FE1D04EE4DCCE3C895" />
+            <ComponentRef Id="cmp590590625DF439F24B8748346C4F947F" />
+            <ComponentRef Id="cmp75251D606EED5819B1290D403A1CC1B2" />
+            <ComponentRef Id="cmpA41C6EE7A653A952E331B00092610B1D" />
+            <ComponentRef Id="cmpC7970CF06BC5973A655CA54A9B6CCBC6" />
+            <ComponentRef Id="cmp7F5C8BF4AB28A6AC4D370E5ED16BC8CA" />
+            <ComponentRef Id="cmp66ACB19E7A13308F5905BA38A8AF393C" />
+            <ComponentRef Id="cmp5BBEF2BB3E27B626D57407BE10B3FFD8" />
+            <ComponentRef Id="cmp14812F1FC6C083E47F25A1033CD085A5" />
+            <ComponentRef Id="cmp671AE9B5018B21C55B0BA6C98FA38DF0" />
+            <ComponentRef Id="cmp593B47C5A296958937B4699BB126000F" />
+            <ComponentRef Id="cmp8F831E6B3AFD94EE2834BBA61A7E1E8E" />
+            <ComponentRef Id="cmpA2013D0A0314254045687AD993E53AF0" />
+            <ComponentRef Id="cmpFCBE6BC77C7F92D75F0CE8E368CC3E4B" />
+            <ComponentRef Id="cmp1385AEF0D53A7C65B9994AABC145CDF9" />
+            <ComponentRef Id="cmp499BB1787CF01BF919D7179ADE8270B5" />
+            <ComponentRef Id="cmp33080E443B97CCC7C57777D2AE2BE4CB" />
+            <ComponentRef Id="cmp3A7FE66590B965AA564111D06419262A" />
+            <ComponentRef Id="cmp23FF98671AE2E0308F9E97AA4E145B04" />
+            <ComponentRef Id="cmp656BEA6A18720172B52FC49DEC669933" />
+            <ComponentRef Id="cmp2CB181F06249C39F4FEB29A2086FF619" />
+            <ComponentRef Id="cmpBB0C7B993C9AF0704B701083AB25A9E6" />
+            <ComponentRef Id="cmp5DDCF0CE56D406D1B8B1F93E988AED6B" />
+            <ComponentRef Id="cmpB0CFEB9FF932521D6A75B6BE6F8D644F" />
+            <ComponentRef Id="cmp21892602E8EED841FC9D3096BEADD77E" />
+            <ComponentRef Id="cmp1874AB219070404EED322213C6A1A49E" />
+            <ComponentRef Id="cmp03F5503D497D187BDDF7D932D5BD55E9" />
+            <ComponentRef Id="cmp511D854943073DD3DA8575A71196A5EE" />
+            <ComponentRef Id="cmp8517FABE3594244641D65AD7ECC3B509" />
+            <ComponentRef Id="cmpCB40FE769240A7D7589B482988492A3A" />
+            <ComponentRef Id="cmp9F1F760351DF98E43961684D66E51E03" />
+            <ComponentRef Id="cmp6EFFB8248868D3F243716E8539FD7A70" />
+            <ComponentRef Id="cmp939A03A1D5316FD7464E1211355E0BBF" />
+            <ComponentRef Id="cmpAB32CA8C50C588956CA156049DBC8DC3" />
+            <ComponentRef Id="cmp5BAF12410FE2BAC62BCC840C517FE19B" />
+            <ComponentRef Id="cmp5A54DC228F2CE9A8FCB80D6234B49F87" />
+            <ComponentRef Id="cmpFC06DC69494DC2D8B76C3789C0B93647" />
+            <ComponentRef Id="cmp398CDE1614CFBC9BA203F92B2D8585C1" />
+            <ComponentRef Id="cmpFE4AEC73C768C61A2C0300832EBAFA72" />
+            <ComponentRef Id="cmp9246E3737C7DE8717D439AFED823F90D" />
+            <ComponentRef Id="cmpFB830D1BEF10CB449B01CB6D09E5E8C8" />
+            <ComponentRef Id="cmp71FD3D668E9A0FED659D531091E8F80F" />
+            <ComponentRef Id="cmp49FC78DB761A2F02451F964C668157F9" />
+            <ComponentRef Id="cmp51A64D8BE970AF502AD88D3769EE167C" />
+            <ComponentRef Id="cmpDCCFF5581B0169947DD28AE42006673E" />
+            <ComponentRef Id="cmp115EBE51A04263528F8E8128A657C557" />
+            <ComponentRef Id="cmpF93B8D606C35D22837A07B0F42131B4B" />
+            <ComponentRef Id="cmp0F4FA52A814089F3984C2B63EF5D9780" />
+            <ComponentRef Id="cmpCEDF9F382DAFA88A4D45035281A963F1" />
+            <ComponentRef Id="cmpF64D60E2A7A50FD6241ABDBE27E31F59" />
+            <ComponentRef Id="cmp40129634DAACB8625D06428F5E618FE6" />
+            <ComponentRef Id="cmp9E66E5F8DD94DBBA7D7C34AED2F3438C" />
+            <ComponentRef Id="cmp3D1FC6C83B6BC2E4924BC4123DD897BC" />
+            <ComponentRef Id="cmpDF28353F829A06CCCE4E94853A988CE0" />
+            <ComponentRef Id="cmp1395E43CD6D50AE0C19F5E8AAE9BFC3B" />
+            <ComponentRef Id="cmp8651FCCED1A2C602092BE43948CCA15F" />
+            <ComponentRef Id="cmp069C3A9541B7FEC8A61DD9DF89ED25B9" />
+            <ComponentRef Id="cmp1B8D75B534A12D2AA6C9E85C27F3B5C2" />
+            <ComponentRef Id="cmpBB6D00A53492D2D7EC0B6B36E3AB08F5" />
+            <ComponentRef Id="cmpEA32BD79171C0E467B1B41A6ED829617" />
+            <ComponentRef Id="cmp020F19ACA82CDE060286E97432195433" />
+            <ComponentRef Id="cmpC71556D9728D691E3D08ABA913EDCD2C" />
+            <ComponentRef Id="cmpD0AA0E33E1F40A545486CE27D7698130" />
+            <ComponentRef Id="cmpB22E793AB0E064B0398F5217D4C10F5A" />
+            <ComponentRef Id="cmpEB8BD998A6C12CE1E9332A904D235ED2" />
+            <ComponentRef Id="cmp550863411F30BD7462E7F357A74D43D5" />
+            <ComponentRef Id="cmp391159C0D65CA97E508275A365F667AF" />
+            <ComponentRef Id="cmp5C7429CF0CCA0A2F988DC61A5E0A4783" />
+            <ComponentRef Id="cmpEFEB2D4955561AB4E4542C15A89B5B32" />
+            <ComponentRef Id="cmp8A30F2A960D0FC26E07CB603BDE5D345" />
+            <ComponentRef Id="cmp1B22BFA7AF06A4836157E0D6A2AC7C81" />
+            <ComponentRef Id="cmpC694CE163C0416F7F5C1A6405FA86B11" />
+            <ComponentRef Id="cmp026B44CD93B5AE3CDA96A9B7B7DE1D95" />
+            <ComponentRef Id="cmp0C58F15D67050C8292C764631B322654" />
+            <ComponentRef Id="cmp6A168A6D0BF60F488492D2016FDD3D7D" />
+            <ComponentRef Id="cmpADF73400C2A118A3E1C34AA56DE00083" />
+            <ComponentRef Id="cmpFA012C378D6346D9B8D1674115960BDE" />
+            <ComponentRef Id="cmpFE10BFF4AC9D3263C68A7AD34D1001A6" />
+            <ComponentRef Id="cmp933D76729090587A7B65283C73A4CEC9" />
+            <ComponentRef Id="cmp9C3DE6F48B6EAC5F51BC8209E5C30EDF" />
+            <ComponentRef Id="cmp64584C3B02B6A78B0EF3245A0FEFE473" />
+            <ComponentRef Id="cmp08B98333F544EE1A481F253A67796F06" />
+            <ComponentRef Id="cmp374E425681E78F9574A574FF71722428" />
+            <ComponentRef Id="cmpE80A12ECA9E8037BAC5EDC7DABDBE411" />
+            <ComponentRef Id="cmpF81B13AB32BBE1429E867254320367B1" />
+            <ComponentRef Id="cmp169A981B444EF17964A9E5E6CF1FFCE7" />
+            <ComponentRef Id="cmp2C14D6A8D2148B82E9AA3C4B5A9244D6" />
+            <ComponentRef Id="cmp6EA5236A0E09048C953E34307AA83761" />
+            <ComponentRef Id="cmp65EBAF7CC5F7D6C01175E18F16BB8A6F" />
+            <ComponentRef Id="cmp56F6FDE624A39544ED4A19CD31ABE113" />
+            <ComponentRef Id="cmp7ADF0E1B35AFEAA2C3E648D100D1DCCB" />
+            <ComponentRef Id="cmp026C6682D94A491BF5EE6829763CA73F" />
+            <ComponentRef Id="cmpEB784F92D865A14E6D69202B8E3000C3" />
+            <ComponentRef Id="cmpD16912F468142E2A974DF5DB5C5E1BAD" />
+            <ComponentRef Id="cmpA0BFD8C06ABD9C38B370E7DAAA5D1166" />
+            <ComponentRef Id="cmp7F020F42A1C1B0119421ED3973E5B9BB" />
+            <ComponentRef Id="cmp4769864D0832FADFD6FB24F87930D34F" />
+            <ComponentRef Id="cmp211D3724749C3952BEFEF8DF3C3973BF" />
+            <ComponentRef Id="cmp28A18F57A1C7957CEB6226C2DD211242" />
+            <ComponentRef Id="cmpE3B560558F7AE351423D23AFFA82483E" />
+            <ComponentRef Id="cmp0BC848D31607A27744FD7422A0A63A7E" />
+            <ComponentRef Id="cmp2186B99000AFCD0A6038DA24C9788347" />
+            <ComponentRef Id="cmpEBFB7AC0FCF52B4833754399A1CF9C44" />
+            <ComponentRef Id="cmp7B33FBE076E56915F3C698382FDF793C" />
+            <ComponentRef Id="cmp3CA3E1B1FF67221DFC354D21667D5C91" />
+            <ComponentRef Id="cmpB4108B3D6523A91005441A7A73781654" />
+            <ComponentRef Id="cmp05106526A9BFC99BE5BF039B8999D5D0" />
+            <ComponentRef Id="cmp2A9B03FA25F11A3521F78E1E12F00770" />
+            <ComponentRef Id="cmpB503073AA24AA6FC76850BF10C31CF59" />
+            <ComponentRef Id="cmp2E186059BBAB57B86E85713863FAA015" />
+            <ComponentRef Id="cmpEED9F28B31E25005439B6EF16C974D1F" />
+            <ComponentRef Id="cmpE5B8606C26F8B4D1FC300484C7E59EE7" />
+            <ComponentRef Id="cmp2313F1BC70D659A7A9FC0D7EE2ACA2CF" />
+            <ComponentRef Id="cmp9106CD68EFFB3C0C92447584C0937519" />
+            <ComponentRef Id="cmpD13D2274DC3CB211F8B7CA016471267F" />
+            <ComponentRef Id="cmpC3E2176ACD94262A7F5FCA39D712B5A1" />
+            <ComponentRef Id="cmpADDC5953A7E484AC6A5809295254504E" />
+            <ComponentRef Id="cmpEC30F2EBF73991C9A357BA020B30C6B1" />
+            <ComponentRef Id="cmpC4133A33201936F83F6C8AACAAF0B5AE" />
+            <ComponentRef Id="cmp70645FB70872AEBC622E3B26777A1E62" />
+            <ComponentRef Id="cmpFB24D10083F451DC5CF0ECF779FC0B18" />
+            <ComponentRef Id="cmp8D1A1A9C3EEE14DA7EA72394C6B2A57B" />
+            <ComponentRef Id="cmp3D853ACE1A3659F5BEC5F46F08D34B0E" />
+            <ComponentRef Id="cmp682B7C5A34E535E5D40B4CD02F715F7B" />
+            <ComponentRef Id="cmp3A6C168BB832F63A12C67F7135E97EE8" />
+            <ComponentRef Id="cmp9AA68C785B1B68EC6C1F57A15A054C96" />
+            <ComponentRef Id="cmp8CFB40AA2A3AC743C33905F84476F868" />
+            <ComponentRef Id="cmp0422254EC4F10B302D0FA0C487D8DBEA" />
+            <ComponentRef Id="cmp59E5D557A24804A6A39B2E2DDD1072EB" />
+            <ComponentRef Id="cmp12CB1031808CB29843C83589DFB886EB" />
+            <ComponentRef Id="cmpC0535A5E2E130017DD489122D3F991B0" />
+            <ComponentRef Id="cmp3CAAA38C37F6D0C3FD737BC13727C7DF" />
+            <ComponentRef Id="cmp0601E55D292BFE9451483F17489ABCA2" />
+            <ComponentRef Id="cmpF147110D2475DC11217645632C33D74D" />
+            <ComponentRef Id="cmp51F6F8EADDA54DDF2EB3096A15FB9811" />
+            <ComponentRef Id="cmp9EB119CE9AB8536AD88C69B75F3CBE00" />
+            <ComponentRef Id="cmp5ADACA4F3908A176BAE94A5F40061056" />
+            <ComponentRef Id="cmp0AD9AB37AACC4ECB530A6F685A014542" />
+            <ComponentRef Id="cmp702FCC549E8E12F51EFC21CEA19FB498" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
