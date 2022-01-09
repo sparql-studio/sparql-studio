@@ -183,6 +183,7 @@
                 <Component Id="cmp9E66E5F8DD94DBBA7D7C34AED2F3438C" Guid="{F0E85D52-35D3-4A82-AD7A-9FE01760DFCB}">
                     <File Id="fil110367B7CADEDE97CFB65FC2B94D46B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\app.publish\SPARQL_Studio.exe" />
                 </Component>
+            </Directory>
             <Directory Id="dirC2A25BD972A0CE6CA0E5449830E3199D" Name="locales">
                 <Component Id="cmp1B8D75B534A12D2AA6C9E85C27F3B5C2" Guid="{DA8C6EA6-E5BD-4F3C-8276-A75B958A614B}">
                     <File Id="filF343E04CB45CA330FD7D03555BDFD8B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\am.pak" />
