@@ -53,7 +53,7 @@
     <PreBuildEvent>REM set %25HarvestDir%25="$(ProjectDir)HarvestDir"
 md "$(ProjectDir)HarvestDir"
 echo "$(ProjectDir)HarvestDir"
-xcopy "$(ProjectDir)..\SPARQL_Studio\bin\$(Configuration)\%2a.%2a" "$(ProjectDir)HarvestDir\%2a.%2a" /E /Y
+xcopy  /E /Y "$(ProjectDir)\..\SPARQL_Studio\bin\$(Configuration)\%2a.%2a" "$(ProjectDir)HarvestDir\%2a.%2a"
 del "$(ProjectDir)HarvestDir\SPARQL_Studio.exe"
 del "$(ProjectDir)HarvestDir\Sparql_document.ico"
 
