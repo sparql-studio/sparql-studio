@@ -54,7 +54,7 @@
 md "$(ProjectDir)HarvestDir"
 echo "$(ProjectDir)HarvestDir"
 rem del ".\$(HarvestDir)\%2a.%2a" /Q /F /S
-xcopy "$(SolutionDir)Src\SPARQL_Studio\bin\$(Configuration)\%2a.%2a" "$(ProjectDir)HarvestDir\%2a.%2a" /E /Y
+xcopy "$(ProjectDir)..\SPARQL_Studio\bin\$(Configuration)\%2a.%2a" "$(ProjectDir)HarvestDir\%2a.%2a" /E /Y
 del "$(ProjectDir)HarvestDir\SPARQL_Studio.exe"
 del "$(ProjectDir)HarvestDir\Sparql_document.ico"
 
