@@ -2,3 +2,5 @@
 Code/.vs/SPARQL_Studio/DesignTimeBuild/.dtbcache.v2
 Code/.vs/SPARQL_Studio/DesignTimeBuild/.dtbcache.v2
 Code/.vs
+Code/Src/SPARQL_Studio.Setup/HarvestDir
+Code/Src/SPARQL_Studio.Setup/Harvested.CoreFiles.wxs
