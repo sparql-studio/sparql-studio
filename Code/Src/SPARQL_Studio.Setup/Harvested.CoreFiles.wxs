@@ -62,9 +62,6 @@
             <Component Id="cmp593B47C5A296958937B4699BB126000F" Guid="{F645156A-F862-40A4-A5C8-B640E8EA871E}">
                 <File Id="fil74C30EBEB08AD69984405E221438C865" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\d3dcompiler_47.dll" />
             </Component>
-            <Component Id="cmp8F831E6B3AFD94EE2834BBA61A7E1E8E" Guid="{AB9F427C-25BC-4710-913B-3879DAD1E268}">
-                <File Id="filD490978B0FA87AFBFC76FFEEA7125F82" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\debug.log" />
-            </Component>
             <Component Id="cmpA2013D0A0314254045687AD993E53AF0" Guid="{D167CF28-BA4F-409D-8AFA-E79C67DE0FA8}">
                 <File Id="fil7E114F02F9C0E5A80B41E6039EDD1620" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\DigitalRune.Windows.TextEditor.dll" />
             </Component>
@@ -186,24 +183,6 @@
                 <Component Id="cmp9E66E5F8DD94DBBA7D7C34AED2F3438C" Guid="{F0E85D52-35D3-4A82-AD7A-9FE01760DFCB}">
                     <File Id="fil110367B7CADEDE97CFB65FC2B94D46B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\app.publish\SPARQL_Studio.exe" />
                 </Component>
-            </Directory>
-            <Directory Id="dir93A3F958D6017921CA73A07A09454823" Name="GPUCache">
-                <Component Id="cmp3D1FC6C83B6BC2E4924BC4123DD897BC" Guid="{3ED90133-C4D6-4DA3-A811-CDEA11F68119}">
-                    <File Id="fil7862B75C1158DE493B561DE3C0BFFE43" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_0" />
-                </Component>
-                <Component Id="cmpDF28353F829A06CCCE4E94853A988CE0" Guid="{65B174CB-6930-4583-BF7E-8F82D813C14E}">
-                    <File Id="fil8C851ECFD71B2BCC64E6E95E590418B6" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_1" />
-                </Component>
-                <Component Id="cmp1395E43CD6D50AE0C19F5E8AAE9BFC3B" Guid="{91A24C75-9BBB-4BC0-9702-71C0F3ADC6CF}">
-                    <File Id="fil0C3A6A84C7A0ECA15017EE256EF09583" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_2" />
-                </Component>
-                <Component Id="cmp8651FCCED1A2C602092BE43948CCA15F" Guid="{6BE28BEA-54FF-46A6-B5C9-E4D30AE39FA4}">
-                    <File Id="fil5D30CE4A800664305957B3437BBD1D7D" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\data_3" />
-                </Component>
-                <Component Id="cmp069C3A9541B7FEC8A61DD9DF89ED25B9" Guid="{9721B2C1-3074-4878-B94F-3C96857A40DB}">
-                    <File Id="fil09C6FC88FD899C3AAEB79755AD3AB6C1" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\GPUCache\index" />
-                </Component>
-            </Directory>
             <Directory Id="dirC2A25BD972A0CE6CA0E5449830E3199D" Name="locales">
                 <Component Id="cmp1B8D75B534A12D2AA6C9E85C27F3B5C2" Guid="{DA8C6EA6-E5BD-4F3C-8276-A75B958A614B}">
                     <File Id="filF343E04CB45CA330FD7D03555BDFD8B2" KeyPath="yes" Source="$(var.SPARQL_Studio.TargetDir)\locales\am.pak" />
