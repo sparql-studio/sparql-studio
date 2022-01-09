@@ -97,7 +97,7 @@ jobs:
         
     # Build the WIX setup
     - name: Build the installer
-      run: msbuild $env:Wix_Project_Directory\ /t:Restore /p:Configuration=$env:Configuration
+      run: msbuild $env:Wix_Project_Path\ /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
