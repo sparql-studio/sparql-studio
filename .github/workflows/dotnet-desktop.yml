@@ -42,9 +42,9 @@ on:
   workflow_dispatch:
     
   push:
-    branches: [ dev_experimental ]
+    branches: [ dev_experimental, dev, master ]
   pull_request:
-    branches: [ dev_experimental ]
+    branches: [ dev_experimental, dev, master ]
 
 jobs:
 
@@ -62,6 +62,7 @@ jobs:
       # Test_Project_Path: your-test-project-path                                           # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Wap_Project_Directory: Code\Packaging\SPARQL_Studio_Package                           # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: Code\Packaging\SPARQL_Studio_Package\SPARQL_Studio_Package.wapproj  # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Wix_Project_Directory: Code\Src\SPARQL_Studio.Setup
 
     steps:
     - name: Checkout
@@ -116,8 +117,17 @@ jobs:
             Remove-Item -path $certificatePath # $env:Wap_Project_Directory\$env:Signing_Certificate
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload build artifacts
+    - name: Upload the MSIX package
       uses: actions/upload-artifact@v2
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
+
+    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
+    - name: Upload the MSI package
+      uses: actions/upload-artifact@v2
+      with:
+        name: MSI Installer (${{ matrix.configuration }})
+        path: ${{ env.Wix_Project_Directory }}\bin\${{ matrix.configuration }}
+
+      
