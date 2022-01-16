@@ -50,7 +50,7 @@
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
-    <PreBuildEvent>call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)HarvestDir" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir $(ConfigurationName)</PreBuildEvent>
+    <PreBuildEvent>call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir $(ConfigurationName)</PreBuildEvent>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
