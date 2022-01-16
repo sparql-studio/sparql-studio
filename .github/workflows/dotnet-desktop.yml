@@ -95,9 +95,10 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
-    # Build the WIX setup
-    - name: Build the installer
-      run: msbuild $env:Wix_Project_Path /p:Configuration=$env:Configuration
+    # Build the Solution 
+    - name: Build the solution
+      # run: msbuild $env:Wix_Project_Path /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
 
