@@ -5,8 +5,12 @@ SET ComponentGroup=%3
 SET SourceVar=%4
 SET Configuration=%5
 
+echo creating folder "%HarvestFileDir%"...
 md "%HarvestFileDir%"
+
+echo xcopy  /E /Y "%HarvestSourceDir%\*.*" "%HarvestFIleDir%\*.*"
 xcopy  /E /Y "%HarvestSourceDir%\*.*" "%HarvestFIleDir%\*.*"
+
 del "%HarvestFileDir%\SPARQL_Studio.exe"
 del "%HarvestFileDir%\Sparql_document.ico"
 
