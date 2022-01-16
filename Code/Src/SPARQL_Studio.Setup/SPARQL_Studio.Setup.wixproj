@@ -50,14 +50,7 @@
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <PropertyGroup>
-    <PreBuildEvent>set %25HarvestDir%25="$(ProjectDir)HarvestDir"
-md "$(ProjectDir)HarvestDir"
-echo "$(ProjectDir)HarvestDir"
-call "xcopy"  /E /Y "$(ProjectDir)\..\SPARQL_Studio\bin\$(Configuration)\%2a.%2a" "$(ProjectDir)HarvestDir\%2a.%2a"
-del "$(ProjectDir)HarvestDir\SPARQL_Studio.exe"
-del "$(ProjectDir)HarvestDir\Sparql_document.ico"
-
-call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)HarvestDir" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir</PreBuildEvent>
+    <PreBuildEvent />
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
