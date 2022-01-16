@@ -8,8 +8,8 @@ SET Configuration=%5
 echo creating folder "%HarvestFileDir%"...
 md "%HarvestFileDir%"
 
-echo xcopy  /E /Y "%HarvestSourceDir%\*.*" "%HarvestFIleDir%\*.*"
-xcopy  /E /Y "%HarvestSourceDir%\*.*" "%HarvestFIleDir%\*.*"
+echo xcopy  /E /Y "%HarvestSourceDir%" "%HarvestFileDir%"
+xcopy  /E /Y "%HarvestSourceDir%" "%HarvestFileDir%"
 
 del "%HarvestFileDir%\SPARQL_Studio.exe"
 del "%HarvestFileDir%\Sparql_document.ico"
