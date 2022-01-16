@@ -57,8 +57,7 @@ call "xcopy"  /E /Y "$(ProjectDir)\..\SPARQL_Studio\bin\$(Configuration)\%2a.%2a
 del "$(ProjectDir)HarvestDir\SPARQL_Studio.exe"
 del "$(ProjectDir)HarvestDir\Sparql_document.ico"
 
-call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)HarvestDir" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir
-rem call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)\..\SPARQL_Studio\bin\$(Configuration)" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir</PreBuildEvent>
+call "$(ProjectDir)\MakeHeat.cmd" "$(ProjectDir)HarvestDir" "$(ProjectDir)Harvested.CoreFiles.wxs" SparqlStudio.CoreFiles SPARQL_Studio.TargetDir</PreBuildEvent>
   </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
